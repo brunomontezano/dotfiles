@@ -14,5 +14,6 @@ This repository is basically the backup of my config files for a variety of appl
 - My i3-gaps config
 - The master&stack layout script for i3wm
 - My terminator config
+- My alacritty config
 
 Hope it helps somebody.
