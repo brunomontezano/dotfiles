@@ -9,7 +9,7 @@ This repository is basically the backup of my config files for a variety of appl
 - My .bashrc
 - My .nanorc
 - My .fehbg
-- My .bash-powerline.sh
+- The bash-powerline script
 - My .nvidia-settings-rc
 - My i3-gaps config
 - The master&stack layout script for i3wm
