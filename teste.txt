@@ -1,5 +1,0 @@
-## This is a text file
-
-## I wanna test if it works on git.
-
-This is a git test.
