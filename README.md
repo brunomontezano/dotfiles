@@ -15,5 +15,6 @@ This repository is basically the backup of my config files for a variety of appl
 - The master&stack layout script for i3wm
 - My terminator config
 - My alacritty config
+- My xmonad config
 
 Hope it helps somebody.
