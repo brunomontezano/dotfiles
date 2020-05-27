@@ -1,0 +1,49 @@
+[global_config]
+  window_state = maximise
+  borderless = True
+  tab_position = hidden
+  title_hide_sizetext = True
+[keybindings]
+[profiles]
+  [[default]]
+    background_darkness = 0.8
+    cursor_color = "#aaaaaa"
+    font = Monospace 14
+    foreground_color = "#00ff00"
+    show_titlebar = False
+    scrollbar_position = hidden
+    use_system_font = False
+  [[Dracula]]
+    background_color = "#1e1f29"
+    background_darkness = 0.8
+    cursor_color = "#bbbbbb"
+    font = Monospace 12
+    foreground_color = "#f8f8f2"
+    show_titlebar = False
+    scrollbar_position = hidden
+    palette = "#000000:#ff5555:#50fa7b:#f1fa8c:#bd93f9:#ff79c6:#8be9fd:#bbbbbb:#555555:#ff5555:#50fa7b:#f1fa8c:#ce72e8:#ff79c6:#8be9fd:#ffffff"
+    use_system_font = False
+  [[Gruvbox Dark]]
+    background_color = "#1e1e1e"
+    cursor_color = "#e6d4a3"
+    font = Monospace 14
+    foreground_color = "#e6d4a3"
+    show_titlebar = False
+    palette = "#1e1e1e:#be0f17:#868715:#cc881a:#377375:#a04b73:#578e57:#978771:#7f7061:#f73028:#aab01e:#f7b125:#719586:#c77089:#7db669:#e6d4a3"
+    use_system_font = False
+  [[Solarized Darcula]]
+    background_color = "#3d3f41"
+    cursor_color = "#708284"
+    foreground_color = "#d2d8d9"
+    show_titlebar = False
+    palette = "#25292a:#f24840:#629655:#b68800:#2075c7:#797fd4:#15968d:#d2d8d9:#25292a:#f24840:#629655:#b68800:#2075c7:#797fd4:#15968d:#d2d8d9"
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = Dracula
+[plugins]
