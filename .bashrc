@@ -175,10 +175,6 @@ alias vim=nvim
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 
-# git bare repo for dotfiles
-
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-
 ### BASH POWERLINE ###
 source ~/.bash-powerline.sh
 
