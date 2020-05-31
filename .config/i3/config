@@ -159,6 +159,7 @@ bindsym $mod+Shift+c reload
 
 # Open specific applications in floating mode
 for_window [class="Gnome-calculator"] floating enable border pixel 1
+for_window [class="Gnome-control-center"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Virt-manager"] floating enable border normal
