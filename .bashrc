@@ -7,7 +7,7 @@
 # My bash config. Modified by Bruno Montezano.
 
 PATH="$HOME/.local/bin${PATH:+:${PATH}}"
-EDITOR="nano"
+EDITOR="nvim"
 export TERM="st-256color"
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 
