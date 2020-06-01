@@ -15,8 +15,10 @@ Dotfiles are configuration files that are used to customize your Linux installat
 You can download my dotfiles cloning this repository to your local machine and then copying the files you want to use as you wish.
 In this example I'm going to demonstrate how you would use my .bashrc file as your bash configuration file:
 
-  `$ git clone https://github.com/brunomontezano/dotfiles`
-  `$ cd dotfiles`
-  `$ cp .bashrc ~/.bashrc`
-
+  ```
+  $ git clone https://github.com/brunomontezano/dotfiles
+  $ cd dotfiles
+  $ cp .bashrc ~/.bashrc
+  ```
+  
 If you do this, probably the next time you open your bash session, you're going to notice some changes, because of the new .bashrc file.
