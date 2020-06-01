@@ -1,0 +1,128 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/pepper/
+	..
+1590333546
+'b
+	/home/pepper/bin/
+	..
+1590333546
+'h
+	/home/pepper/
+	..
+1590333546
+'z
+	/home/pepper/.config/vifm
+	..
+1590333546
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/pepper
+	Documentos
+1
+d/home/pepper/Documentos
+	..
+0
+d/home/pepper
+	Modelos
+4
+d/home/pepper/Modelos
+	..
+0
+d/home/pepper
+	Modelos
+4
+d/home
+	pepper
+2
+d/home/pepper
+	Imagens
+3
+d/home/pepper/Imagens
+	..
+0
+d/home/pepper
+	..
+0
+d/home
+	pepper
+2
+d/home/pepper
+	..
+0
+d/home
+	pepper
+2
+d/home/pepper
+	..
+0
+d/home
+	..
+0
+d/
+	home
+4
+d/home
+	pepper
+2
+d/home/pepper
+	Música
+5
+d/home
+	pepper
+2
+d/home/pepper
+	Música
+5
+d/home/pepper/Música
+	..
+0
+d/home/pepper
+	Música
+5
+d
+
+# Right window history (oldest to newest):
+D/home/pepper
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0
