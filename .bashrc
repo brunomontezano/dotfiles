@@ -161,7 +161,7 @@ alias ll='exa -l --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
 # brightness and battery level
-alias cb='sudo nano /sys/class/backlight/intel_backlight/brightness'
+alias cb='sudo vim /sys/class/backlight/intel_backlight/brightness'
 alias bt='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 
 # navigation
