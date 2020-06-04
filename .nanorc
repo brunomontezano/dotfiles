@@ -89,9 +89,10 @@ include "~/.nano/yaml.nanorc"
 include "~/.nano/yum.nanorc"
 include "~/.nano/zsh.nanorc"
 
+# Set line numbers on nano
 set linenumbers
 
-# set element fgcolor,bgcolor
+# Set element fgcolor,bgcolor
 
 set titlecolor brightwhite,blue
 
