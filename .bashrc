@@ -4,7 +4,7 @@
 #| |_) | |  | |_| | | | | (_) |   Feel free to modify it
 #|_.__/|_|   \__,_|_| |_|\___/    Feel free to copy it
 #
-# My bash config. Modified by Bruno Montezano.
+# My bash config. Created and mantained by Bruno Montezano.
 
 PATH="$HOME/.local/bin${PATH:+:${PATH}}"
 EDITOR="nvim"
@@ -160,18 +160,18 @@ alias la='exa -a --color=always --group-directories-first'  # all files and dirs
 alias ll='exa -l --color=always --group-directories-first'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
-# brightness and battery level
+# Brightness and battery level
 alias cb='sudo vim /sys/class/backlight/intel_backlight/brightness'
 alias bt='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 
-# navigation
+# Navigation
 alias ..='cd ..' 
 alias ...='cd ../..'
 
-# vim
+# Vim
 alias vim=nvim
 
-# adding flags
+# Adding flags
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 
