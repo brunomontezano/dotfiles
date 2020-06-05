@@ -144,7 +144,9 @@ bindsym $mod+Shift+c reload
 for_window [class="Gnome-calculator"] floating enable border pixel 1
 for_window [class="Gnome-control-center"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Simple-scan"] floating enable border normal
 for_window [class="Virt-manager"] floating enable border normal
 
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
