@@ -1,3 +1,11 @@
+"_
+"| |__  _ __ _   _ _ __   ___
+"| '_ \| '__| | | | '_ \ / _ \  Bruno Montezano
+"| |_| | |  | |_| | | | | (_) | https://github.com/brunomontezano/dotfiles
+"|_.__/|_|   \__,_|_| |_|\___/
+"
+" My custom .vimrc for vim and neovim use.
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle For Managing Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

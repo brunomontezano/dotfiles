@@ -1,8 +1,8 @@
 #  _
 #| |__  _ __ _   _ _ __   ___
 #| '_ \| '__| | | | '_ \ / _ \    Bruno Montezano
-#| |_) | |  | |_| | | | | (_) |   Feel free to modify it
-#|_.__/|_|   \__,_|_| |_|\___/    Feel free to copy it
+#| |_) | |  | |_| | | | | (_) |   https://github.com/brunomontezano/dotfiles
+#|_.__/|_|   \__,_|_| |_|\___/    Feel free to copy and modify it.
 #
 # My bash config. Created and mantained by Bruno Montezano.
 

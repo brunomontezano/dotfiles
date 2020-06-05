@@ -1,8 +1,8 @@
 #
 #| |__  _ __ _   _ _ __   ___  
 #| '_ \| '__| | | | '_ \ / _ \    Bruno Montezano 
-#| |_) | |  | |_| | | | | (_) |   
-#|_.__/|_|   \__,_|_| |_|\___/ 
+#| |_) | |  | |_| | | | | (_) |   https://github.com/brunomontezano/dotfiles
+#|_.__/|_|   \__,_|_| |_|\___/    Feel free to copy and modify it
 #
 # This is my custom configuration for i3-gaps.
 # It will not be overwritten, so edit it as you like.
