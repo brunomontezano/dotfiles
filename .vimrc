@@ -148,7 +148,7 @@ let g:NERDTreeWinSize=38
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vifm
+" => Vifm (default leader key = \)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <Leader>vv :Vifm<CR>
 map <Leader>vs :VsplitVifm<CR>
