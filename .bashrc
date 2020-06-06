@@ -168,12 +168,19 @@ alias bt='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
 alias ..='cd ..' 
 alias ...='cd ../..'
 
+# Broot
+alias br='br -dhp'
+alias bs='br --sizes'
+
 # Vim
 alias vim=nvim
 
 # Adding flags
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
+
+### SET VI MODE IN BASH ###
+set -o vi
 
 ### BASH POWERLINE ###
 source ~/.bash-powerline.sh
@@ -188,5 +195,3 @@ source /home/pepper/.config/broot/launcher/bash/br
 
 ### RANDOM COLOR SCRIPT ###
 colorscript random
-
-source /home/pepper/.config/broot/launcher/bash/br
