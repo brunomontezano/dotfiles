@@ -1,5 +1,5 @@
 #
-#| |__  _ __ _   _ _ __   ___  
+
 #| '_ \| '__| | | | '_ \ / _ \    Bruno Montezano 
 #| |_) | |  | |_| | | | | (_) |   https://github.com/brunomontezano/dotfiles
 #|_.__/|_|   \__,_|_| |_|\___/    Feel free to copy and modify it
@@ -224,7 +224,7 @@ smart_borders on
 bar {
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
-    font pango:mononoki Nerd Font Mono 12
+    font pango:mononoki Nerd Font Mono 11
 	colors {
                 background #282A36
                 statusline #F8F8F2
