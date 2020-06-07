@@ -252,9 +252,8 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Autostart Applications
-exec_always --no-startup-id  ~/.config/i3/scripts/autolayout.py # master&stack layout
-exec_always --no-startup-id compton # compositor
-exec --no-startup-id feh --bg-scale ~/Imagens/wallpaper.jpg # setting the wallpaper
-exec --no-startup-id nm-applet # networkmanager system tray
-exec --no-startup-id redshift-gtk # color temperature app
-exec xinput set-prop 13 351 1 # activate tapping on touchpad
+exec --no-startup-id  ~/.config/i3/scripts/autolayout.py # Master&Stack layout
+exec --no-startup-id compton # Compositor
+exec --no-startup-id feh --bg-scale ~/Imagens/wallpaper.jpg # Setting the wallpaper
+exec --no-startup-id redshift # Color temperature app
+exec xinput set-prop 13 351 1 # Activate tapping on touchpad
