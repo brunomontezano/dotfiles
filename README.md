@@ -1,6 +1,6 @@
 # Dotfiles
 
-![Screenshot2020-05-2413:08:52](https://user-images.githubusercontent.com/65104127/82980825-e8c27880-9fd9-11ea-94dc-837b4e2ff46d.png)
+![Screenshot2020-06-0714:12:31](https://user-images.githubusercontent.com/65104127/83975892-de5f8300-a8e5-11ea-94e6-9bace82e6bc6.png)
 
 Dotfiles are configuration files that are used to customize your Linux installation. It's called this way because there's is a period in the start of the filename (meaning it is a hidden file or directory), that looks like a dot. This repo contains some of my config files. This way I can use it as my backup if I format my machines or install it on new computers. Also, it can be helpful for some if you want to copy or take some ideas for your own customizations.
 
