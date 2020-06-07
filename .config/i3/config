@@ -224,6 +224,7 @@ smart_borders on
 bar {
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
+    font pango:mononoki Nerd Font Mono 12
 	colors {
                 background #282A36
                 statusline #F8F8F2
