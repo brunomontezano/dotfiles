@@ -145,7 +145,9 @@ for_window [class="Gnome-calculator"] floating enable border pixel 1
 for_window [class="Gnome-control-center"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Nvidia-settings"] floating enable
 for_window [class="Pavucontrol"] floating enable
+for_window [class="Popsicle"] floating enable
 for_window [class="Simple-scan"] floating enable border normal
 for_window [class="Virt-manager"] floating enable border normal
 
@@ -252,7 +254,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Autostart Applications
-exec --no-startup-id  ~/.config/i3/scripts/autolayout.py # Master&Stack layout
+exec_always --no-startup-id  ~/.config/i3/scripts/autolayout.py # Master&Stack layout
 exec --no-startup-id compton # Compositor
 exec --no-startup-id feh --bg-scale ~/Imagens/wallpaper.jpg # Setting the wallpaper
 exec --no-startup-id redshift # Color temperature app
