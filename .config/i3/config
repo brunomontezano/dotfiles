@@ -256,7 +256,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Autostart Applications
-exec_always --no-startup-id  ~/.config/i3/scripts/autolayout.py # Master&Stack layout
+exec --no-startup-id  ~/.config/i3/scripts/autolayout.py # Master&Stack layout
 exec --no-startup-id compton # Compositor
 exec --no-startup-id feh --bg-scale ~/images/wallpaper.jpg # Setting the wallpaper
 exec --no-startup-id redshift # Color temperature app
