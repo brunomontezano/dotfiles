@@ -150,6 +150,7 @@ for_window [class="Nvidia-settings"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="Popsicle"] floating enable
 for_window [class="Simple-scan"] floating enable border normal
+for_window [class="Transmission-gtk"] floating enable border normal
 for_window [class="Virt-manager"] floating enable border normal
 
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
