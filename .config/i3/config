@@ -34,7 +34,7 @@ floating_modifier $mod
 bindsym $mod+Return exec st
 
 # Take screenshot with scrot
-bindsym $mod+z exec "scrot ~/Imagens/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png"
+bindsym $mod+z exec "scrot ~/images/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png"
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -43,7 +43,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id  rofi -show run -lines 4
 
 # Bind to launch dmenu config script
-bindsym $mod+c exec ~/Documentos/ti/programacao/bash/dmenu-edit-configs.sh
+bindsym $mod+c exec ~/documents/ti/programacao/bash/dmenu-edit-configs.sh
 
 # Change focus
 bindsym $mod+h focus left
@@ -141,6 +141,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 
 # Open specific applications in floating mode
+for_window [class="Galculator"] floating enable border pixel 1
 for_window [class="Gnome-calculator"] floating enable border pixel 1
 for_window [class="Gnome-control-center"] floating enable
 for_window [class="Lxappearance"] floating enable sticky enable border normal
@@ -256,6 +257,6 @@ bindsym XF86AudioPrev exec playerctl previous
 # Autostart Applications
 exec_always --no-startup-id  ~/.config/i3/scripts/autolayout.py # Master&Stack layout
 exec --no-startup-id compton # Compositor
-exec --no-startup-id feh --bg-scale ~/Imagens/wallpaper.jpg # Setting the wallpaper
+exec --no-startup-id feh --bg-scale ~/images/wallpaper.jpg # Setting the wallpaper
 exec --no-startup-id redshift # Color temperature app
 exec xinput set-prop 13 351 1 # Activate tapping on touchpad
