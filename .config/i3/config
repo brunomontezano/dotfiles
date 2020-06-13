@@ -34,7 +34,7 @@ floating_modifier $mod
 bindsym $mod+Return exec st
 
 # Take screenshot with scrot
-bindsym $mod+z exec "scrot ~/img/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png"
+bindsym $mod+z exec --no-startup-id "scrot ~/img/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png"
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -156,6 +156,9 @@ bindsym $mod+Shift+r restart
 # Exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# Enter resize mode
+bindsym $mod+r mode "resize"
+
 # Resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -181,9 +184,6 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
-# Enter resize mode
-bindsym $mod+r mode "resize"
-
 # Colors
 set $bg-color          #2f343f
 set $inactive-bg-color   #2f343f
@@ -205,22 +205,6 @@ set $urgent-bg-color     #E53935
 # Hide edge borders
 hide_edge_borders both 
 
-############################
-### Settings for i3 gaps ###
-############################
-
-for_window [class=".*"] border pixel 2
-
-# Set inner/outer gaps
-gaps inner 10
-gaps outer -4
-
-# Smart gaps (gaps used if only more than one container on the workspace
-smart_gaps on
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace)
-smart_borders on
-
 # Bar (i3blocks)
 bar {
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
@@ -240,7 +224,7 @@ bar {
 }
 
 # Bind to lock the screen
-bindsym $mod+shift+x exec i3lock --color "$bg-color"
+bindsym $mod+shift+x exec --no-startup-id i3lock --color "$bg-color"
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -253,7 +237,23 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # Autostart Applications
-exec --no-startup-id  ~/.config/i3/scripts/autolayout.py # Master&Stack layout
+exec --no-startup-id  /home/pepper/.config/i3/scripts/autolayout.py # Master&Stack layout
 exec --no-startup-id picom # Compositor
 exec --no-startup-id feh --bg-scale ~/img/wallpaper.jpg # Setting the wallpaper
 exec --no-startup-id redshift # Color temperature app
+
+############################
+### Settings for i3 gaps ###
+############################
+
+for_window [class=".*"] border pixel 2
+
+# Set inner/outer gaps
+gaps inner 10
+gaps outer -4
+
+# Smart gaps (gaps used if only more than one container on the workspace
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+smart_borders on
