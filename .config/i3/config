@@ -31,7 +31,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # Start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec --no-startup-id st
 
 # Take screenshot with scrot
 bindsym $mod+z exec --no-startup-id "scrot ~/img/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png"
