@@ -17,8 +17,12 @@ settings:
         xb: config-cycle statusbar.hide
         xt: config-cycle tabs.show always switching
         xx: config-cycle statusbar.hide ;; config-cycle tabs.show always switching
+  colors.webpage.darkmode.enabled:
+    global: true
   content.notifications:
     https://diolinux.com.br: false
+    https://meet.google.com: false
+    https://web.whatsapp.com: false
     https://www.reddit.com: false
     https://www.youtube.com: false
   content.register_protocol_handler:
