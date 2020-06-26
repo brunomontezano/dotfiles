@@ -138,6 +138,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+Shift+c reload
 
 # Open specific applications in floating mode
+for_window [class="Arandr"] floating enable border normal
 for_window [class="Galculator"] floating enable border pixel 1
 for_window [title="Gerenciador de Máquinas Virtuais"] floating enable border normal
 for_window [class="Gnome-calculator"] floating enable border pixel 1
