@@ -14,9 +14,10 @@ settings:
   bindings.commands:
     global:
       normal:
-        xb: config-cycle statusbar.hide
+        xb: config-cycle statusbar.show always never
         xt: config-cycle tabs.show always switching
-        xx: config-cycle statusbar.hide ;; config-cycle tabs.show always switching
+        xx: config-cycle statusbar.show always never ;; config-cycle tabs.show always
+          switching
   colors.webpage.darkmode.enabled:
     global: true
   content.notifications:
@@ -29,8 +30,8 @@ settings:
     https://mail.google.com?extsrc=mailto&url=%25s: false
   downloads.location.directory:
     global: /home/pepper/tmp
-  statusbar.hide:
-    global: false
+  statusbar.show:
+    global: always
   tabs.show:
     global: always
   url.searchengines:
