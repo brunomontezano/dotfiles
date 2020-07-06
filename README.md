@@ -14,6 +14,7 @@ Dotfiles are configuration files that are used to customize your Linux installat
 ## Usage
 
 You can download my dotfiles cloning this repository to your local machine and then copying the files you want to use as you wish.
+
 In this example I'm going to demonstrate how you would use my .bashrc file as your bash configuration file:
 
   ```
