@@ -1,0 +1,43 @@
+------------------------
+-------NEWSFEEDS--------
+------------------------
+http://g1.globo.com/dynamo/brasil/rss2.xml "~NEWSFEED: G1"
+https://distrowatch.com/news/dw.xml "~NEWSFEED: DistroWatch" 
+https://itsfoss.com/feed/ "~NEWSFEED: It's Foss"
+https://opensource.com/feed "~NEWSFEED: Opensource.com"
+-------------------------
+-------LINUX-------------
+-------------------------
+https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "~LINUX: DistroTube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~LINUX: Luke Smith"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "~LINUX: Linus Tech Tips"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ "~LINUX: Chris Titus Tech"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~LINUX: Brodie Robertson"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCCIHOP7e271SIumQgyl6XBQ "~LINUX: OldTechBloke"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg "~LINUX: Wolfgang's Channel"
+-------------------------
+-------FITNESS-----------
+-------------------------
+https://www.youtube.com/feeds/videos.xml?channel_id=UC94_fvLx7abZgs9LIkM7jxw "~FITNESS: Zack Telander"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCd5WxLFvKjEbJl5xyUqyHSw "~FITNESS: Weightlifting House"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC99cI6bWAcvGGBFvnxbqqeg "~FITNESS: Clarence Kennedy"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCSyByWwlEi4BWzjCdJCQEDA "~FITNESS: Clarence0"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCRLOLGZl3-QTaJfLmAKgoAw "~FITNESS: Alan Thrall"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCoFUI8OrYvZJcqfjo_bbl8Q "~FITNESS: Sika Strength"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCpN9tj3DOoOiPfMyNMBAGdw "~FITNESS: TrainingPal"
+-------------------------
+-------REDDIT------------
+-------------------------
+https://www.reddit.com/r/linux.rss "~REDDIT: r/linux"
+https://www.reddit.com/r/linux4noobs.rss "~REDDIT: r/linux4noobs"
+https://www.reddit.com/r/linuxquestions.rss "~REDDIT: r/linuxquestions"
+https://www.reddit.com/r/archlinux.rss "~REDDIT: r/archlinux"
+https://www.reddit.com/r/vim.rss "~REDDIT: r/vim"
+https://www.reddit.com/r/weightlifting.rss "~REDDIT: r/weightlifting"
+-------------------------
+-------ARCHLINUX---------
+-------------------------
+https://www.archlinux.org/feeds/packages/added/ "~ARCH: Packages Added"
+https://www.archlinux.org/feeds/packages/removed/ "~ARCH: Packages Removed"
+https://aur.archlinux.org/rss/ "~ARCH: Packages Added (AUR)"
+https://wiki.archlinux.org/api.php?hidebots=1&urlversion=1&days=7&limit=50&action=feedrecentchanges&feedformat=rss "~ARCH: Arch Wiki"
