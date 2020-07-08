@@ -176,7 +176,7 @@ alias bs='br --sizes'
 alias vim=nvim
 
 # Newsboat
-alias newsboat='newsboat -u /home/peppper/.config/newsboat/urls -C /home/pepper/.config/newsboat/config -c /home/pepper/.cache/newsboat/newsboat.db'
+alias newsboat='newsboat -u /home/pepper/.config/newsboat/urls -C /home/pepper/.config/newsboat/config -c /home/pepper/.cache/newsboat/newsboat.db'
 
 # Elinks
 alias elinks='elinks -config-dir /home/pepper/.config/elinks'
