@@ -58,7 +58,7 @@ filetype plugin indent on    " required
 " => Powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': '16color',
       \ }
 
 " Always show statusline
@@ -103,7 +103,7 @@ let g:NERDTreeWinSize=38
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-  highlight LineNr           ctermfg=8    ctermbg=none    cterm=none
+  highlight LineNr           ctermfg=12   ctermbg=none    cterm=none
   highlight CursorLineNr     ctermfg=7    ctermbg=8       cterm=none
   highlight VertSplit        ctermfg=0    ctermbg=8       cterm=none
   highlight Statement        ctermfg=2    ctermbg=none    cterm=none
