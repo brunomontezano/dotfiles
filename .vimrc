@@ -58,7 +58,7 @@ filetype plugin indent on    " required
 " => Powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline = {
-      \ 'colorscheme': 'darcula',
+      \ 'colorscheme': 'solarized',
       \ }
 
 " Always show statusline
@@ -204,3 +204,8 @@ aug i3config_ft_detection
     au!
     au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
 aug end
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Use system clipboard
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set clipboard=unnamedplus
