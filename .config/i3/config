@@ -185,24 +185,25 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
-# Set primary gruvbox colorscheme colors
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
-set $aqua #689d68
-set $gray #a89984
-set $darkgray #1d2021
 
-# Theme colors
+#colors
+#solarized theme, weird
+set $background #1C1C1C
+set $back-inact #1C1C1C
+set $back-urgen #B85335
+set $border #1C1C1C
+set $bor-in #1C1C1C
+set $bor-ur #1C1C1C
+set $text #FFB946
+set $t-in #888888
+set $t-ur #CF6A4C
+set $bor-fo #93a1a1
 
-# class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $darkgray $purple $darkgray
-client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
-client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
-client.urgent           $red $red $white $red $red
+# class                 border  background  text  indicator
+client.focused          $border $background $text #31392F
+client.focused_inactive $bor-in $back-inact $t-in #676767
+client.unfocused        $bor-in $back-inact $t-in #515151
+client.urgent           $bor-ur $back-urgen $t-ur #900000
 
 # Hide edge borders
 hide_edge_borders both 
@@ -213,17 +214,15 @@ bar {
 	position top
     font pango:Fantasque Sans Mono 11
 	colors {
-        # Bar background color
-        background $bg
-        # Text color used for blocks that do not have a color specified.
-        statusline $yellow
-        # Workspaces section            
-        #                    border  backgr. text
-        focused_workspace    $aqua $aqua $darkgray
-        inactive_workspace   $darkgray $darkgray $yellow
-        active_workspace     $darkgray $darkgray $yellow
-        urgent_workspace     $red $red $bg
-  }
+  
+        background $back-inact
+        statusline $text
+                           #border #back       #text
+        focused_workspace  $border $background $text
+        active_workspace   $border $background $text
+        inactive_workspace $bor-in $back-inact $t-in
+        urgent_workspace   $bor-ur $back-urgen $t-ur
+    }
 }
 
 # Bind to lock the screen
