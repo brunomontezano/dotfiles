@@ -175,6 +175,12 @@ alias bs='br --sizes'
 # Vim
 alias vim=nvim
 
+# Newsboat
+alias newsboat='newsboat -u /home/peppper/.config/newsboat/urls -C /home/pepper/.config/newsboat/config -c /home/pepper/.cache/newsboat/newsboat.db'
+
+# Elinks
+alias elinks='elinks -config-dir /home/pepper/.config/elinks'
+
 # Adding flags
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
