@@ -1,4 +1,10 @@
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
+#
+#| |__ __ __ _   _ _ __   ___
+#| '_ \| '__| | | | '_ \ / _ \    Bruno Montezano 
+#| |_) | |  | |_| | | | | (_) |   https://github.com/brunomontezano/dotfiles
+#|_.__/|_|   \__,_|_| |_|\___/    Feel free to copy and modify it
+#
+# My configuration for Alacritty, the GPU enhanced terminal emulator.
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
@@ -104,19 +110,6 @@ font:
   # Normal (roman) font face
   normal:
     # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) mononoki Nerd Fontspace
-    #   - (Windows) Consolas
-    # family: SauceCodePro Nerd Font
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: mononoki Nerd Font
-    # family: JetBrains Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
-    # family: mononoki Nerd Font
     family: mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
@@ -125,17 +118,6 @@ font:
   # Bold font face
   bold:
     # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    # family: SauceCodePro Nerd Font
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: mononoki Nerd Font
-    # family: JetBrains Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
-    # family: mononoki Nerd Font
     family: mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
@@ -144,17 +126,6 @@ font:
   # Italic font face
   italic:
     # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    # family: SauceCodePro Nerd Font Mono
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: mononoki Nerd Font
-    # family: JetBrains Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofuritalic Nerd Font Mono
-    # family: mononoki Nerd Font
     family: mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
@@ -163,24 +134,13 @@ font:
   # Bold italic font face
   bold_italic:
     # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    # family: SauceCodePro Nerd Font Mono
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: mononoki Nerd Font
-    # family: JetBrains Mono
-    # family: UbuntuMono Nerd Font
-    # family: Monofuritalic Nerd Font Mono
-    # family: mononoki Nerd Font
     family: mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
-  size: 8.0
+  size: 7.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -297,7 +257,6 @@ colors:
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
 background_opacity: 1.0
-# background_opacity: 0.95
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -343,19 +302,6 @@ background_opacity: 1.0
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
 #working_directory: None
-
-# WinPTY backend (Windows only)
-#
-# Alacritty defaults to using the newer ConPTY backend if it is available,
-# since it resolves a lot of bugs and is quite a bit faster. If it is not
-# available, the the WinPTY backend will be used instead.
-#
-# Setting this option to `true` makes Alacritty use the legacy WinPTY backend,
-# even if the ConPTY backend is available.
-#winpty_backend: false
-
-# Send ESC (\x1b) before characters when alt is pressed.
-#alt_send_esc: true
 
 #debug:
   # Display the time it takes to redraw each frame.
@@ -542,10 +488,10 @@ key_bindings:
   - { key: V,        mods: Control|Shift, action: Paste            }
   - { key: C,        mods: Control|Shift, action: Copy             }
   - { key: Insert,   mods: Shift,         action: PasteSelection   }
-  - { key: Key0,     mods: Control,       action: ResetFontSize    }
-  - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  - { key: U,        mods: Control|Shift, action: ResetFontSize    }
+  - { key: K,        mods: Control|Shift, action: IncreaseFontSize }
   - { key: Add,      mods: Control,       action: IncreaseFontSize }
-  - { key: Subtract, mods: Control,       action: DecreaseFontSize }
+  - { key: J,        mods: Control|Shift, action: DecreaseFontSize }
   - { key: Minus,    mods: Control,       action: DecreaseFontSize }
 
   - { key: Paste,                    action: Paste                            }
