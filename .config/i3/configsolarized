@@ -1,0 +1,295 @@
+# _ 
+#| |__ __ __ _   _ _ __   ___
+#| '_ \| '__| | | | '_ \ / _ \    Bruno Montezano 
+#| |_) | |  | |_| | | | | (_) |   https://github.com/brunomontezano/dotfiles
+#|_.__/|_|   \__,_|_| |_|\___/    Feel free to copy and modify it
+#
+# This is my custom configuration for i3-gaps.
+# It will not be overwritten, so edit it as you like.
+# Created and maintained by Bruno Montezano
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+#################
+### VARIABLES ###
+#################
+
+# Choose the modkey (Mod4=Super Key/Mod1=Alt Key)
+set $mod Mod4
+
+# Choose your terminal
+set $term alacritty
+
+# Font for window titles. Also used on bar unless changed on bar function
+font pango:Fantasque Sans Mono 13
+
+# xss-lock grabs a logind suspend inhibit lock and use i3lock to lock the screen
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+################
+### BINDINGS ###
+################
+
+# Volume adjustment (pactl)
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Start a terminal
+bindsym $mod+Return exec --no-startup-id $term
+
+# Take screenshot with scrot
+bindsym $mod+z exec --no-startup-id "scrot ~/media/img/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png"
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Start program launcher
+bindsym $mod+d exec --no-startup-id  rofi -show run -lines 4
+
+# Bind to lock the screen
+bindsym $mod+shift+x exec --no-startup-id i3lock --color "$bg-color"
+
+# Change focus with vim bindings
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window with vim bindings
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split in horizontal orientation
+bindsym $mod+Ctrl+h split h
+
+# Split in vertical orientation
+bindsym $mod+Ctrl+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# Focus the parent container
+bindsym $mod+p focus parent
+
+# Focus the child container
+bindsym $mod+c focus child
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# Exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+##################
+### WORKSPACES ###
+##################
+
+# Workspace Names
+# These variables are used to avoid repeating names, and to make easy when changing names.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Assign workspace for given application
+assign [class="qutebrowser"] $ws1
+assign [class="Deadbeef"] $ws10
+assign [class="st-256color"] $ws2
+assign [class="Alacritty"] $ws2
+
+# Open specific applications in floating mode
+for_window [class="Arandr"] floating enable border normal
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [title="Gerenciador de Máquinas Virtuais"] floating enable border normal
+for_window [class="Gnome-calculator"] floating enable border pixel 1
+for_window [class="Gnome-control-center"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Nvidia-settings"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="Transmission-gtk"] floating enable border normal
+for_window [title="Virtual Machine Manager"] floating enable border normal
+
+###################
+### RESIZE MODE ###
+###################
+
+# Enter resize mode
+bindsym $mod+r mode "resize"
+
+# Resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Use the vim bindings to resize the window
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # Same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # Back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+##############
+### COLORS ###
+##############
+
+# Nord Color Scheme
+
+
+set $background #1C1C1C
+set $back-inact #1C1C1C
+set $back-urgen #B85335
+set $border #1C1C1C
+set $bor-in #1C1C1C
+set $bor-ur #1C1C1C
+set $text #FFB946
+set $t-in #888888
+set $t-ur #CF6A4C
+set $bor-fo #93a1a1
+
+# Property name         Border  BG      Text    Indicator Child Border
+client.focused          $border $background $text #31392F
+client.focused_inactive $bor-in $back-inact $t-in #676767
+client.unfocused        $bor-in $back-inact $t-in #515151
+client.urgent           $bor-ur $back-urgen $t-ur #900000
+
+# Bar (i3blocks)
+bar {
+	status_command i3blocks -c ~/.config/i3/i3blocks.conf
+	position top
+    font pango:Fantasque Sans Mono 11
+	colors {
+  
+        background $back-inact
+        statusline $text
+        # State             Border  BG      Text
+        focused_workspace  $border $background $text
+        active_workspace   $border $background $text
+        inactive_workspace $bor-in $back-inact $t-in
+        urgent_workspace   $bor-ur $back-urgen $t-ur
+    }
+}
+
+####################
+### CONTROL KEYS ###
+####################
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+##############################
+### AUTOSTART APPLICATIONS ###
+##############################
+
+# Master&Stack layout
+exec --no-startup-id  /home/pepper/.config/i3/scripts/autolayout.py
+
+# Compositor
+exec --no-startup-id picom
+
+# Setting the wallpaper
+exec --no-startup-id feh --bg-scale ~/media/img/wallpaper.jpg
+
+# Color temperature app
+exec --no-startup-id redshift
+
+############################
+### SETTINGS FOR I3-GAPS ###
+############################
+
+# Hide edge borders
+hide_edge_borders both 
+
+# Set the border thickness
+for_window [class=".*"] border pixel 2
+
+# Set inner/outer gaps
+gaps inner 15
+gaps outer 15
+
+# Smart gaps (gaps used if only more than one container on the workspace
+smart_gaps on
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+smart_borders on
