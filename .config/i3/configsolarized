@@ -219,10 +219,10 @@ set $bor-ur #1C1C1C
 set $text #FFB946
 set $t-in #888888
 set $t-ur #CF6A4C
-set $bor-fo #93a1a1
+set $bor-fo #b58900
 
 # Property name         Border  BG      Text    Indicator Child Border
-client.focused          $border $background $text #31392F
+client.focused          $bor-fo $bor-fo $text #31392F
 client.focused_inactive $bor-in $back-inact $t-in #676767
 client.unfocused        $bor-in $back-inact $t-in #515151
 client.urgent           $bor-ur $back-urgen $t-ur #900000
