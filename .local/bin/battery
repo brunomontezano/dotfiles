@@ -1,74 +1,20 @@
-#!/usr/bin/perl
-#
-# Copyright 2014 Pierre Mavro <deimos@deimos.fr>
-# Copyright 2014 Vivien Didelot <vivien@didelot.org>
-#
-# Licensed under the terms of the GNU GPL v3, or any later version.
-#
-# This script is meant to use with i3blocks. It parses the output of the "acpi"
-# command (often provided by a package of the same name) to read the status of
-# the battery, and eventually its remaining time (to full charge or discharge).
-#
-# The color will gradually change for a percentage below 85%, and the urgency
-# (exit code 33) is set if there is less that 5% remaining.
+#!/bin/sh
 
-use strict;
-use warnings;
-use utf8;
+# Print all batteries, their percentage remaining and an emoji corresponding
+# to charge status (🔌 for plugged up, 🔋 for discharging on battery, etc).
 
-my $acpi;
-my $status;
-my $percent;
-my $full_text;
-my $short_text;
-my $bat_number = $ENV{BLOCK_INSTANCE} || 0;
+# Loop through all attached batteries.
+for battery in /sys/class/power_supply/BAT?
+do
+    # Get its remaining capacity and charge status.
+    capacity=$(cat "$battery"/capacity) || exit
+    status=$(cat "$battery"/status)
 
-# read the first line of the "acpi" command output
-open (ACPI, "acpi -b | grep 'Battery $bat_number' |") or die;
-$acpi = <ACPI>;
-close(ACPI);
+    # If it is discharging and 25% or less, we will add a ! as a warning.
+    [ "$status" = "Discharging" ] && [ "$capacity" -le 25 ] && warn="❗ "
 
-# fail on unexpected output
-if ($acpi !~ /: (\w+), (\d+)%/) {
-	die "$acpi\n";
-}
-
-$status = $1;
-$percent = $2;
-$full_text = "$percent%";
-
-if ($status eq 'Discharging') {
-	$full_text .= ' dis';
-} elsif ($status eq 'Charging') {
-	$full_text .= ' chr';
-}
-
-$short_text = $full_text;
-
-if ($acpi =~ /(\d\d:\d\d):/) {
-	$full_text .= " ($1)";
-}
-
-# print text
-print "$full_text\n";
-print "$short_text\n";
-
-# consider color and urgent flag only on discharge
-if ($status eq 'Discharging') {
-
-	if ($percent < 20) {
-		print "#ff5555\n";
-	} elsif ($percent < 40) {
-		print "#ffb86c\n";
-	} elsif ($percent < 60) {
-		print "#f1fa8c\n";
-	} elsif ($percent < 85) {
-		print "#50fa7b\n";
-	}
-
-	if ($percent < 5) {
-		exit(33);
-	}
-}
-
-exit(0);
+    # Print the battery status (replaced by a corresponding emoji with
+    # sed), the percentage left and the warning if there is one.
+    printf "%s%s%s\n" "$(echo "$status" | sed "s/,//;s/[Dd]ischarging/ 🔋 /;s/[Nn]ot charging/ 🛑 /;s/[Cc]harging/ 🔌 /;s/[Uu]nknown/ ♻️ /;s/[Ff]ull/ ⚡ /;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/% /')"
+    unset warn
+done
