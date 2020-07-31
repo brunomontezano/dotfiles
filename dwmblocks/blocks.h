@@ -5,7 +5,7 @@ static const Block blocks[] = {
 
 	{" 🔺 ", "upt",		        60,		            2},
 
-	{" 📦 ", "pacupdate",		1800,		        9},
+	{" 📦 ", "pacupdate",		360,		        9},
 	
 	{" 💻 ", "memory",	        6,		            1},
 
