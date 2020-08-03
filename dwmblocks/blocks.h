@@ -11,7 +11,7 @@ static const Block blocks[] = {
 
     {"",     "battery",         5,                  3},
 
-	{" 🔊 ", "volume",			0,		            10},
+	{"", "volume",  			0,		            10},
 
 	{" 🕑 ", "clock",			60,		            1},
 };
