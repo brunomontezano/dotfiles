@@ -40,7 +40,7 @@ TIME=$(date +%H.%M.%S)
 NAME="Screencast ${DATE} at ${TIME}"
 
 # Where to save it
-DIR="${HOME}/tmp"
+DIR="${HOME}/vid"
 
 
 
