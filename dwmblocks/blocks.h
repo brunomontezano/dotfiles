@@ -7,13 +7,13 @@ static const Block blocks[] = {
 
 	{" 📦 ", "pacupdate",		360,		        9},
 	
-	{" 💻 ", "memory",	        6,		            1},
+	{" 💻 ", "memory",	        10,		            14},
 
     {"",     "battery",         5,                  3},
 
-	{" 🔊 ", "volume",			2,		            10},
+	{" 🔊 ", "volume",			0,		            10},
 
-	{" 🕑 ", "clock",			5,		            0},
+	{" 🕑 ", "clock",			60,		            1},
 };
 
 //sets delimeter between status commands. NULL character ('\0') means no delimeter.
