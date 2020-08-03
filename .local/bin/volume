@@ -1,4 +1,10 @@
 #!/bin/sh 
 
+state="$(amixer get Master | tail -n1 | awk '{print $6}')"
 vol="$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')"
-echo "${vol}% "
+icovol=🔊
+icomute=🔇
+
+[ "$state" = "[on]" ] && echo " $icovol $vol% "
+
+[ "$state" = "[off]" ] && echo " $icomute " || exit 0
