@@ -51,6 +51,9 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remap Keys
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Change leader key to ","
+let mapleader =","
+
 "Remap ESC to ii
 "imap ii <Esc>
 
@@ -212,3 +215,18 @@ aug end
 " => Use system clipboard
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set clipboard=unnamedplus
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Execute texclear script when leaving .tex file
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd VimLeave *.tex !texclear %
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Open the output file from the opened file
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <Leader>c :w! \| !compiler <c-r>%<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Open the output file from the opened file
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <Leader>p :!opout <c-r>%<CR><CR>
