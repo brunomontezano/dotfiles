@@ -52,13 +52,16 @@ filetype plugin indent on    " required
 " => Remap Keys
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Remap ESC to ii
-":imap ii <Esc>
+"imap ii <Esc>
+
+"Remap Space+Space to travel for the <++> on tex documents
+autocmd FileType tex inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline = {
-      \ 'colorscheme': '16color',
+      \ 'colorscheme': 'darcula',
       \ }
 
 " Always show statusline
@@ -103,7 +106,7 @@ let g:NERDTreeWinSize=38
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-  highlight LineNr           ctermfg=12   ctermbg=none    cterm=none
+  highlight LineNr           ctermfg=8   ctermbg=none    cterm=none
   highlight CursorLineNr     ctermfg=7    ctermbg=8       cterm=none
   highlight VertSplit        ctermfg=0    ctermbg=8       cterm=none
   highlight Statement        ctermfg=2    ctermbg=none    cterm=none
