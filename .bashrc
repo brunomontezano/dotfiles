@@ -9,7 +9,7 @@
 PATH="$HOME/.local/bin${PATH:+:${PATH}}"
 EDITOR="nvim"
 export TERM="st-256color"
-export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTCONTROL=ignoredups:erasedups  # No duplicate entries
 
 [[ $- != *i* ]] && return
 
@@ -21,9 +21,9 @@ colors() {
 	printf "Values 40..47 are \e[43mbackground colors\e[m\n"
 	printf "Value  1 gives a  \e[1mbold-faced look\e[m\n\n"
 
-	# foreground colors
+	# Foreground colors
 	for fgc in {30..37}; do
-		# background colors
+		# Background colors
 		for bgc in {40..47}; do
 			fgc=${fgc#37} # white
 			bgc=${bgc#40} # black
@@ -40,7 +40,7 @@ colors() {
 	done
 }
 
-# enable color support of ls and also add handy aliases
+# Enable color support of ls and also add handy aliases
  if [ -x /usr/bin/dircolors ]; then
      test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
      alias ls='ls --color=auto'
