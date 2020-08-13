@@ -13,10 +13,10 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
+" Set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()		" required, all plugins must appear after this line.
+call vundle#begin()		" Required, all plugins must appear after this line.
 
 Plugin 'gmarik/Vundle.vim'							" Vundle
 Plugin 'itchyny/lightline.vim'                      " Lightline statusbar
@@ -33,9 +33,9 @@ Plugin 'ap/vim-css-color'                           " Color previews for CSS
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
 Plugin 'mboughaba/i3config.vim'
 
-call vundle#end()		" required, all plugins must appear before this line.
+call vundle#end()		" Required, all plugins must appear before this line.
 
-filetype plugin indent on    " required
+filetype plugin indent on    " Required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 
@@ -45,7 +45,7 @@ filetype plugin indent on    " required
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 
-" see :h vundle for more details or wiki for FAQ
+" See :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -63,6 +63,7 @@ autocmd FileType tex inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set lightline color scheme
 let g:lightline = {
       \ 'colorscheme': 'darcula',
       \ }
@@ -155,7 +156,7 @@ let g:NERDTreeWinSize=38
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vifm (default leader key = \)
+" => Vifm (Current leader key = ,) (Default leader key = \)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <Leader>vv :Vifm<CR>
 map <Leader>vs :VsplitVifm<CR>
@@ -192,10 +193,10 @@ let g:python_highlight_all = 1
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
 au BufEnter *.org            call org#SetOrgFileType()
 
-set guioptions-=m  "remove menu bar
-set guioptions-=T  "remove toolbar
-set guioptions-=r  "remove right-hand scroll bar
-set guioptions-=L  "remove left-hand scroll bar
+set guioptions-=m  " Remove menu bar
+set guioptions-=T  " Remove toolbar
+set guioptions-=r  " Remove right-hand scroll bar
+set guioptions-=L  " Remove left-hand scroll bar
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
