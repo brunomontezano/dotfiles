@@ -1,45 +1,19 @@
-#define base00 #2e3440
-#define base01 #3b4252
-#define base02 #434c5e
-#define base03 #4c566a
-#define base04 #9fabad
-#define base05 #e5e9f0
-#define base06 #eceff4
-#define base07 #8fbcbb
-#define base08 #88c0d0
-#define base09 #81a1c1
-#define base0A #5e81ac
-#define base0B #bf616a
-#define base0C #d08770
-#define base0D #ebcb8b
-#define base0E #a3be8c
-#define base0F #b48ead
-
-
-*foreground:   base04       
-*background:   base00
-*cursorColor:  base04
-*fading:       35
-*fadeColor:    base03
-
-*lighterbg:    base01
-*separator:    base01
-*selection:    base0B
-
-*color0:       base01
-*color1:       base0B
-*color2:       base0E
-*color3:       base0D
-*color4:       base09
-*color5:       base0F
-*color6:       base08
-*color7:       base05
-
-*color8:       base03
-*color9:       base11
-*color10:      base14
-*color11:      base13
-*color12:      base09
-*color13:      base15
-*color14:      base07
-*color15:      base06
+! Dracula Xresources palette
+*.foreground: #F8F8F2
+*.background: #282A36
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
