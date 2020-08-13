@@ -48,8 +48,11 @@ bindsym $mod+z exec --no-startup-id "scrot ~/img/screenshots/Screenshot%Y-%m-%d%
 # Kill focused window
 bindsym $mod+Shift+q kill
 
-# Start program launcher
-bindsym $mod+d exec --no-startup-id  rofi -show run -lines 4
+# Start program launcher (Choose between rofi or dmenu, and leave the other one commented)
+# Rofi
+# bindsym $mod+d exec --no-startup-id  rofi -show run -lines 4
+# Dmenu
+bindsym $mod+d exec dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'Run:'
 
 # Bind to lock the screen
 bindsym $mod+shift+x exec --no-startup-id i3lock --color "$base01"
@@ -207,49 +210,34 @@ mode "resize" {
 ### COLORS ###
 ##############
 
-# Nord Color Scheme
-set $base00 #2E3440
-set $base01 #3B4252
-set $base02 #434C5E
-set $base03 #4C566A
-set $base04 #D8DEE9
-set $base05 #E5E9F0
-set $base06 #ECEFF4
-set $base07 #8FBCBB
-set $base08 #88C0D0
-set $base09 #81A1C1
-set $base0A #5E81AC
-set $base0B #BF616A
-set $base0C #D08770
-set $base0D #EBCB8B
-set $base0E #A3BE8C
-set $base0F #B48EAD
+# Current Color Scheme: Dracula
 
-# Property name         Border  BG      Text    Indicator Child Border
-client.focused          $base05 $base0D $base00 $base0D $base0C
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
-client.placeholder      $base00 $base00 $base05 $base00 $base00
-client.background       $base07
+# class                 border  bground text    indicator child_border
+client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+client.background       #F8F8F2
 
 # Bar (i3blocks)
 bar {
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
     font pango:mononoki Nerd Font 11
-    colors {
-        background $base00
-        separator  $base01
-        statusline $base04
 
-        # State             Border  BG      Text
-        focused_workspace   $base05 $base0D $base00
-        active_workspace    $base05 $base03 $base00
-        inactive_workspace  $base03 $base01 $base05
-        urgent_workspace    $base08 $base08 $base00
-        binding_mode        $base00 $base0A $base00
-    }
+        colors {
+            background #282A36
+            statusline #F8F8F2
+            separator  #44475A
+
+            focused_workspace  #44475A #44475A #F8F8F2
+            active_workspace   #282A36 #44475A #F8F8F2
+            inactive_workspace #282A36 #282A36 #BFBFBF
+            urgent_workspace   #FF5555 #FF5555 #F8F8F2
+            binding_mode       #FF5555 #FF5555 #F8F8F2
+        }
+
 }
 
 ####################
@@ -257,8 +245,8 @@ bar {
 ####################
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # Increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # Decrease screen brightness
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
