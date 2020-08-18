@@ -13,23 +13,27 @@
 ### VARIABLES ###
 #################
 
-# Choose the modkey (Mod4=Super Key/Mod1=Alt Key)
+# Choose the Modkey (Mod4=Super Key/Mod1=Alt Key)
 set $mod Mod4
 
-# Choose your terminal
-set $term alacritty
+# Choose your Terminal
+set $term st
 
-# Font for window titles. Also used on bar unless changed on bar function
+# Font for Window Titles. Also used on bar unless changed on bar function
 font pango:mononoki Nerd Font 13
 
 # xss-lock grabs a logind suspend inhibit lock and use i3lock to lock the screen
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+# Declaring Program Launcher variables
+set $dmenu dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'Run:'
+set $rofi --no-startup-id  rofi -show run -lines 4
+
 ################
 ### BINDINGS ###
 ################
 
-# Volume adjustment (pactl)
+# Volume Adjustment (pactl)
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
@@ -39,23 +43,20 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# Start a terminal
+# Start a Terminal
 bindsym $mod+Return exec --no-startup-id $term
 
-# Take screenshot with scrot
+# Take Screenshot with scrot
 bindsym $mod+z exec --no-startup-id "scrot ~/img/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png"
 
-# Kill focused window
+# Kill Focused Window
 bindsym $mod+Shift+q kill
 
-# Start program launcher (Choose between rofi or dmenu, and leave the other one commented)
-# Rofi
-# bindsym $mod+d exec --no-startup-id  rofi -show run -lines 4
-# Dmenu
-bindsym $mod+d exec dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'Run:'
+# Start Program Launcher (Choose between rofi and dmenu)
+bindsym $mod+d exec $dmenu
 
 # Bind to lock the screen
-bindsym $mod+shift+x exec --no-startup-id i3lock --color "$base01"
+bindsym $mod+shift+x exec --no-startup-id i3lock --color "#F8F8F2"
 
 # Change focus with vim bindings
 bindsym $mod+h focus left
@@ -114,7 +115,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
 
 ##################
 ### WORKSPACES ###
@@ -184,7 +185,7 @@ for_window [title="Virtual Machine Manager"] floating enable border normal
 # Enter resize mode
 bindsym $mod+r mode "resize"
 
-# Resize window (you can also use the mouse for that)
+# Resize Window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
@@ -244,11 +245,11 @@ bar {
 ### CONTROL KEYS ###
 ####################
 
-# Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # Increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # Decrease screen brightness
+# Screen Brightness Controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20
 
-# Media player controls
+# Media Player Controls
 bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
@@ -258,16 +259,16 @@ bindsym XF86AudioPrev exec playerctl previous
 ### AUTOSTART APPLICATIONS ###
 ##############################
 
-# Master&Stack layout
+# Master&Stack Layout
 exec --no-startup-id  /home/pepper/.config/i3/scripts/autolayout.py
 
 # Compositor
 exec --no-startup-id picom
 
-# Setting the wallpaper
+# Setting the Wallpaper
 exec --no-startup-id feh --bg-scale ~/img/wallpaper.jpg
 
-# Color temperature app
+# Color Temperature App
 exec --no-startup-id redshift
 
 ############################
