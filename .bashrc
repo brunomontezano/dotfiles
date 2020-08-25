@@ -10,10 +10,8 @@
 PATH="$HOME/.local/bin${PATH:+:${PATH}}" # Add .local/bin to $PATH
 export EDITOR="nvim" # Set Vim as $EDITOR
 export TERM="st-256color" # Set st as $TERM
+export MANPAGER="less"
 export HISTCONTROL=ignoredups:erasedups  # No duplicate entries
-
-### SET VIM AS MANPAGER ###
-export MANPAGER="/bin/sh -c \"col -b | vim --not-a-term -c 'set ft=man ts=8 nomod nolist noma' -\""
 
 ### SET VI MODE IN BASH ###
 set -o vi
