@@ -14,9 +14,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.config/vim/bundle/Vundle.vim
 
-call vundle#begin()		" Required, all plugins must appear after this line.
+call vundle#begin('~/.config/vim/bundle/')	    	" Required, all plugins must appear after this line.
 
 Plugin 'gmarik/Vundle.vim'							" Vundle
 Plugin 'itchyny/lightline.vim'                      " Lightline statusbar
