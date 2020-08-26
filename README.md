@@ -24,3 +24,5 @@ In this example I'm going to demonstrate how you would use my .bashrc file as yo
   ```
   
 If you do this, probably the next time you open your bash session, you're going to notice some changes, because of the new .bashrc file.
+
+Note that you should read everything inside those config files before putting on your system. Sometimes there are something pointing to another file or script and you should aknowledge that. But I'm sure you're pretty smart! Have a good day!
