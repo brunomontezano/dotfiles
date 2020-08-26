@@ -10,8 +10,11 @@
 PATH="$HOME/.local/bin${PATH:+:${PATH}}" # Add .local/bin to $PATH
 export EDITOR="nvim" # Set Vim as $EDITOR
 export TERM="st-256color" # Set st as $TERM
-export MANPAGER="less"
+export MANPAGER="less" # Set less as $MANPAGER
 export HISTCONTROL=ignoredups:erasedups  # No duplicate entries
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # Change location of gtk-2.0 config file
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg # Change location of ~/.gnupg directory
+export LESSHISTFILE="-" # Stop less from creating history file
 
 ### SET VI MODE IN BASH ###
 set -o vi
@@ -61,10 +64,10 @@ ex ()
 ### ALIASES ###
 
 # Changing "ls" to "exa"
-alias ls='exa --color=always --group-directories-first' # normal listing
-alias la='exa -la --color=always --group-directories-first'  # all files and dirs (long format)
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias ls='exa --color=always --group-directories-first' # Normal listing
+alias la='exa -la --color=always --group-directories-first'  # All files and dirs (long format)
+alias ll='exa -l --color=always --group-directories-first'  # Long format
+alias lt='exa -aT --color=always --group-directories-first' # Tree listing
 
 # Colorize grep output
 alias grep='grep --color=auto'
@@ -105,7 +108,7 @@ export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 ### BASH POWERLINE ###
-source ~/.bash-powerline.sh
+source ~/.config/bash-powerline.sh
 
 ### RANDOM COLOR SCRIPT ###
 colorscript random
