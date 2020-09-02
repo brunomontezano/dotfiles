@@ -19,19 +19,18 @@ set rtp+=~/.config/vim/bundle/Vundle.vim
 call vundle#begin('~/.config/vim/bundle/')	    	" Required, all plugins must appear after this line.
 
 Plugin 'gmarik/Vundle.vim'							" Vundle
-Plugin 'itchyny/lightline.vim'                      " Lightline statusbar
-Plugin 'vifm/vifm.vim'
-Plugin 'vimwiki/vimwiki'                            " Vim wiki
-Plugin 'scrooloose/nerdtree'						" added nerdtree
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'frazrepo/vim-rainbow'
-Plugin 'vim-python/python-syntax'
-Plugin 'jreybert/vimagit'
-Plugin 'severin-lemaignan/vim-minimap'
+Plugin 'itchyny/lightline.vim'                      " Lightline Status Bar
+Plugin 'vifm/vifm.vim'                              " Use Vifm inside Vim
+Plugin 'vimwiki/vimwiki'                            " Vim Wiki
+Plugin 'scrooloose/nerdtree'						" Add NerdTree
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'    " Add syntax highlighting to NerdTree
+Plugin 'ryanoasis/vim-devicons'                     " Add some pretty icons
+Plugin 'vim-python/python-syntax'                   " Python syntax highlighting
+Plugin 'jreybert/vimagit'                           " Easier git management
+Plugin 'severin-lemaignan/vim-minimap'              " Add minimap Sublime-like
 Plugin 'ap/vim-css-color'                           " Color previews for CSS
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
-Plugin 'mboughaba/i3config.vim'
+Plugin 'mboughaba/i3config.vim'                     " i3 config syntax highlighting
 
 call vundle#end()		" Required, all plugins must appear before this line.
 
