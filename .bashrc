@@ -10,6 +10,7 @@
 PATH="$HOME/.local/bin${PATH:+:${PATH}}" # Add .local/bin to $PATH
 export EDITOR="nvim" # Set Vim as $EDITOR
 export TERM="st-256color" # Set st as $TERM
+export BROWSER="firefox" # Set Firefox as $BROWSER
 export MANPAGER="less" # Set less as $MANPAGER
 export HISTCONTROL=ignoredups:erasedups  # No duplicate entries
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # Change location of gtk-2.0 config file
