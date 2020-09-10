@@ -56,8 +56,9 @@ let mapleader =","
 "Remap ESC to ii
 "imap ii <Esc>
 
-"Remap Space+Space to travel for the <++> on tex documents
+"Remap Space+Space to travel for the <++> on tex and html documents
 autocmd FileType tex inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
+autocmd FileType html inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Powerline
