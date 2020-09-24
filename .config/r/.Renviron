@@ -1,0 +1,3 @@
+R_PROFILE_USER = ${HOME}/.config/r/.Rprofile
+R_HISTFILE = ${HOME}/.cache/.Rhistory
+R_LIBS_USER = /usr/lib/R/library
