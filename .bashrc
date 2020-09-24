@@ -16,6 +16,7 @@ export HISTCONTROL=ignoredups:erasedups  # No duplicate entries
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # Change location of gtk-2.0 config file
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg # Change location of ~/.gnupg directory
 export LESSHISTFILE="-" # Stop less from creating history file
+export R_ENVIRON_USER="$HOME/.config/r/.Renviron"
 
 ### SET VI MODE IN BASH ###
 set -o vi
@@ -36,8 +37,7 @@ esac
 ### SHOPT ###
 shopt -s histappend # Do not overwrite history
 shopt -s expand_aliases # Expand aliases
-shopt -s checkwinsize # Checks term size when bash regains control
-
+shopt -s checkwinsize # Checks term size when bash regains control 
 ## ARCHIVE EXTRACTION ###
 ## Usage: ex <file>
 ex ()
