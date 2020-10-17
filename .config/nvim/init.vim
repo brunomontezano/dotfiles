@@ -31,6 +31,7 @@ Plugin 'severin-lemaignan/vim-minimap'              " Add minimap Sublime-like
 Plugin 'ap/vim-css-color'                           " Color previews for CSS
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
 Plugin 'mboughaba/i3config.vim'                     " i3 config syntax highlighting
+Plugin 'jalvesaq/Nvim-R'                            " R on Vim
 
 call vundle#end()		" Required, all plugins must appear before this line.
 
@@ -127,32 +128,32 @@ let g:NERDTreeWinSize=38
   highlight String           ctermfg=12   ctermbg=none    cterm=none
   highlight Number           ctermfg=1    ctermbg=none    cterm=none
   highlight Function         ctermfg=1    ctermbg=none    cterm=none
-" highlight WildMenu         ctermfg=0       ctermbg=80      cterm=none
-" highlight Folded           ctermfg=103     ctermbg=234     cterm=none
-" highlight FoldColumn       ctermfg=103     ctermbg=234     cterm=none
-" highlight DiffAdd          ctermfg=none    ctermbg=23      cterm=none
-" highlight DiffChange       ctermfg=none    ctermbg=56      cterm=none
-" highlight DiffDelete       ctermfg=168     ctermbg=96      cterm=none
-" highlight DiffText         ctermfg=0       ctermbg=80      cterm=none
-" highlight SignColumn       ctermfg=244     ctermbg=235     cterm=none
-" highlight Conceal          ctermfg=251     ctermbg=none    cterm=none
-" highlight SpellBad         ctermfg=168     ctermbg=none    cterm=underline
-" highlight SpellCap         ctermfg=80      ctermbg=none    cterm=underline
-" highlight SpellRare        ctermfg=121     ctermbg=none    cterm=underline
-" highlight SpellLocal       ctermfg=186     ctermbg=none    cterm=underline
-" highlight Pmenu            ctermfg=251     ctermbg=234     cterm=none
-" highlight PmenuSel         ctermfg=0       ctermbg=111     cterm=none
-" highlight PmenuSbar        ctermfg=206     ctermbg=235     cterm=none
-" highlight PmenuThumb       ctermfg=235     ctermbg=206     cterm=none
-" highlight TabLine          ctermfg=244     ctermbg=234     cterm=none
-" highlight TablineSel       ctermfg=0       ctermbg=247     cterm=none
-" highlight TablineFill      ctermfg=244     ctermbg=234     cterm=none
-" highlight CursorColumn     ctermfg=none    ctermbg=236     cterm=none
-" highlight CursorLine       ctermfg=none    ctermbg=236     cterm=none
-" highlight ColorColumn      ctermfg=none    ctermbg=236     cterm=none
-" highlight Cursor           ctermfg=0       ctermbg=5       cterm=none
-" highlight htmlEndTag       ctermfg=114     ctermbg=none    cterm=none
-" highlight xmlEndTag        ctermfg=114     ctermbg=none    cterm=none
+  highlight WildMenu         ctermfg=0       ctermbg=80      cterm=none
+  highlight Folded           ctermfg=103     ctermbg=234     cterm=none
+  highlight FoldColumn       ctermfg=103     ctermbg=234     cterm=none
+  highlight DiffAdd          ctermfg=none    ctermbg=23      cterm=none
+  highlight DiffChange       ctermfg=none    ctermbg=56      cterm=none
+  highlight DiffDelete       ctermfg=168     ctermbg=96      cterm=none
+  highlight DiffText         ctermfg=0       ctermbg=80      cterm=none
+  highlight SignColumn       ctermfg=244     ctermbg=235     cterm=none
+  highlight Conceal          ctermfg=251     ctermbg=none    cterm=none
+  highlight SpellBad         ctermfg=168     ctermbg=none    cterm=underline
+  highlight SpellCap         ctermfg=80      ctermbg=none    cterm=underline
+  highlight SpellRare        ctermfg=121     ctermbg=none    cterm=underline
+  highlight SpellLocal       ctermfg=186     ctermbg=none    cterm=underline
+  highlight Pmenu            ctermfg=251     ctermbg=234     cterm=none
+  highlight PmenuSel         ctermfg=0       ctermbg=111     cterm=none
+  highlight PmenuSbar        ctermfg=206     ctermbg=235     cterm=none
+  highlight PmenuThumb       ctermfg=235     ctermbg=206     cterm=none
+  highlight TabLine          ctermfg=244     ctermbg=234     cterm=none
+  highlight TablineSel       ctermfg=0       ctermbg=247     cterm=none
+  highlight TablineFill      ctermfg=244     ctermbg=234     cterm=none
+  highlight CursorColumn     ctermfg=none    ctermbg=236     cterm=none
+  highlight CursorLine       ctermfg=none    ctermbg=236     cterm=none
+  highlight ColorColumn      ctermfg=none    ctermbg=236     cterm=none
+  highlight Cursor           ctermfg=0       ctermbg=5       cterm=none
+  highlight htmlEndTag       ctermfg=114     ctermbg=none    cterm=none
+  highlight xmlEndTag        ctermfg=114     ctermbg=none    cterm=none
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -231,3 +232,8 @@ map <Leader>c :w! \| !compiler <c-r>%<CR>
 " => Open the output file from the opened file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <Leader>p :!opout <c-r>%<CR><CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Remove red highlighting from errors
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType tex :hi Error NONE
