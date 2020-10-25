@@ -1,4 +1,4 @@
-"_
+" _
 "| |__  _ __ _   _ _ __   ___
 "| '_ \| '__| | | | '_ \ / _ \  Bruno Montezano
 "| |_| | |  | |_| | | | | (_) | https://github.com/brunomontezano/dotfiles
@@ -11,7 +11,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype off                  " Required
 
 " Set the runtime path to include Vundle and initialize
 set rtp+=~/.config/vim/bundle/Vundle.vim
@@ -26,27 +26,14 @@ Plugin 'scrooloose/nerdtree'						" Add NerdTree
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'    " Add syntax highlighting to NerdTree
 Plugin 'ryanoasis/vim-devicons'                     " Add some pretty icons
 Plugin 'vim-python/python-syntax'                   " Python syntax highlighting
-Plugin 'jreybert/vimagit'                           " Easier git management
-Plugin 'severin-lemaignan/vim-minimap'              " Add minimap Sublime-like
 Plugin 'ap/vim-css-color'                           " Color previews for CSS
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
-Plugin 'mboughaba/i3config.vim'                     " i3 config syntax highlighting
 Plugin 'jalvesaq/Nvim-R'                            " R on Vim
+Plugin 'junegunn/goyo.vim'                          " Distraction-free writing
 
 call vundle#end()		" Required, all plugins must appear before this line.
 
 filetype plugin indent on    " Required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-
-" See :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remap Keys
@@ -66,7 +53,7 @@ autocmd FileType html inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set lightline color scheme
 let g:lightline = {
-      \ 'colorscheme': 'darcula',
+      \ 'colorscheme': 'wombat',
       \ }
 
 " Always show statusline
@@ -109,54 +96,6 @@ let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=38
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Colors
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-  highlight LineNr           ctermfg=8   ctermbg=none    cterm=none
-  highlight CursorLineNr     ctermfg=7    ctermbg=8       cterm=none
-  highlight VertSplit        ctermfg=0    ctermbg=8       cterm=none
-  highlight Statement        ctermfg=2    ctermbg=none    cterm=none
-  highlight Directory        ctermfg=4    ctermbg=none    cterm=none
-  highlight StatusLine       ctermfg=7    ctermbg=8       cterm=none
-  highlight StatusLineNC     ctermfg=7    ctermbg=8       cterm=none
-  highlight NERDTreeClosable ctermfg=2
-  highlight NERDTreeOpenable ctermfg=8
-  highlight Comment          ctermfg=4    ctermbg=none    cterm=none
-  highlight Constant         ctermfg=12   ctermbg=none    cterm=none
-  highlight Special          ctermfg=4    ctermbg=none    cterm=none
-  highlight Identifier       ctermfg=6    ctermbg=none    cterm=none
-  highlight PreProc          ctermfg=5    ctermbg=none    cterm=none
-  highlight String           ctermfg=12   ctermbg=none    cterm=none
-  highlight Number           ctermfg=1    ctermbg=none    cterm=none
-  highlight Function         ctermfg=1    ctermbg=none    cterm=none
-  highlight WildMenu         ctermfg=0       ctermbg=80      cterm=none
-  highlight Folded           ctermfg=103     ctermbg=234     cterm=none
-  highlight FoldColumn       ctermfg=103     ctermbg=234     cterm=none
-  highlight DiffAdd          ctermfg=none    ctermbg=23      cterm=none
-  highlight DiffChange       ctermfg=none    ctermbg=56      cterm=none
-  highlight DiffDelete       ctermfg=168     ctermbg=96      cterm=none
-  highlight DiffText         ctermfg=0       ctermbg=80      cterm=none
-  highlight SignColumn       ctermfg=244     ctermbg=235     cterm=none
-  highlight Conceal          ctermfg=251     ctermbg=none    cterm=none
-  highlight SpellBad         ctermfg=168     ctermbg=none    cterm=underline
-  highlight SpellCap         ctermfg=80      ctermbg=none    cterm=underline
-  highlight SpellRare        ctermfg=121     ctermbg=none    cterm=underline
-  highlight SpellLocal       ctermfg=186     ctermbg=none    cterm=underline
-  highlight Pmenu            ctermfg=251     ctermbg=234     cterm=none
-  highlight PmenuSel         ctermfg=0       ctermbg=111     cterm=none
-  highlight PmenuSbar        ctermfg=206     ctermbg=235     cterm=none
-  highlight PmenuThumb       ctermfg=235     ctermbg=206     cterm=none
-  highlight TabLine          ctermfg=244     ctermbg=234     cterm=none
-  highlight TablineSel       ctermfg=0       ctermbg=247     cterm=none
-  highlight TablineFill      ctermfg=244     ctermbg=234     cterm=none
-  highlight CursorColumn     ctermfg=none    ctermbg=236     cterm=none
-  highlight CursorLine       ctermfg=none    ctermbg=236     cterm=none
-  highlight ColorColumn      ctermfg=none    ctermbg=236     cterm=none
-  highlight Cursor           ctermfg=0       ctermbg=5       cterm=none
-  highlight htmlEndTag       ctermfg=114     ctermbg=none    cterm=none
-  highlight xmlEndTag        ctermfg=114     ctermbg=none    cterm=none
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vifm (Current leader key = ,) (Default leader key = \)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <Leader>vv :Vifm<CR>
@@ -191,9 +130,6 @@ let g:minimap_highlight='Visual'
 
 let g:python_highlight_all = 1
 
-au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
-au BufEnter *.org            call org#SetOrgFileType()
-
 set guioptions-=m  " Remove menu bar
 set guioptions-=T  " Remove toolbar
 set guioptions-=r  " Remove right-hand scroll bar
@@ -204,14 +140,6 @@ set guioptions-=L  " Remove left-hand scroll bar
 " => Removes pipes | that act as seperators on splits
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set fillchars+=vert:\ 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => i3 Config Syntax Highlighting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-aug i3config_ft_detection
-    au!
-    au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
-aug end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Use system clipboard
