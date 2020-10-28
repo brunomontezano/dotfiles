@@ -28,7 +28,6 @@ Plugin 'ryanoasis/vim-devicons'                     " Add some pretty icons
 Plugin 'vim-python/python-syntax'                   " Python syntax highlighting
 Plugin 'ap/vim-css-color'                           " Color previews for CSS
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
-Plugin 'jalvesaq/Nvim-R'                            " R on Vim
 Plugin 'junegunn/goyo.vim'                          " Distraction-free writing
 
 call vundle#end()		" Required, all plugins must appear before this line.
