@@ -17,6 +17,7 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # Change location of gtk-2
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg # Change location of ~/.gnupg directory
 export LESSHISTFILE="-" # Stop less from creating history file
 export R_ENVIRON_USER="$HOME/.config/r/.Renviron"
+export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
 ### SET VI MODE IN BASH ###
 set -o vi
@@ -38,6 +39,7 @@ esac
 shopt -s histappend # Do not overwrite history
 shopt -s expand_aliases # Expand aliases
 shopt -s checkwinsize # Checks term size when bash regains control 
+
 ## ARCHIVE EXTRACTION ###
 ## Usage: ex <file>
 ex ()
@@ -107,9 +109,6 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
-
-### BASH POWERLINE ###
-source ~/.config/bash-powerline.sh
 
 ### RANDOM COLOR SCRIPT ###
 colorscript random
