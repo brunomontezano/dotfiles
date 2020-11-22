@@ -6,6 +6,9 @@
 #
 # My bash config. Created and mantained by Bruno Montezano.
 
+### LOAD XDG DIRECTORIES
+source "$HOME"/.config/user-dirs.dirs
+
 ### EXPORTS ###
 PATH="$HOME/.local/bin${PATH:+:${PATH}}" # Add .local/bin to $PATH
 export EDITOR="nvim" # Set Vim as $EDITOR
@@ -14,7 +17,8 @@ export BROWSER="firefox" # Set Firefox as $BROWSER
 export MANPAGER="less" # Set less as $MANPAGER
 export HISTCONTROL=ignoredups:erasedups  # No duplicate entries
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # Change location of gtk-2.0 config file
-export GNUPGHOME="$XDG_DATA_HOME"/gnupg # Change location of ~/.gnupg directory
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass 
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
 export LESSHISTFILE="-" # Stop less from creating history file
 export R_ENVIRON_USER="$HOME/.config/r/.Renviron"
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
