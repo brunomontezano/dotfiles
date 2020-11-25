@@ -43,10 +43,6 @@ let mapleader =","
 "Remap ESC to ii
 "imap ii <Esc>
 
-"Remap Space+Space to travel for the <++> on tex and html documents
-autocmd FileType tex inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-autocmd FileType html inoremap <Space><Space> <Esc>/<++><Enter>"_c4l
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -151,9 +147,14 @@ set clipboard=unnamedplus
 autocmd VimLeave *.tex !texclear %
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Open the output file from the opened file
+" => Compile the current file
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <Leader>c :w! \| !compiler <c-r>%<CR>
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Compile the current article
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <Leader>a :w! \| !articlecompiler <c-r>%<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Open the output file from the opened file
