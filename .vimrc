@@ -20,12 +20,10 @@ call vundle#begin('~/.config/vim/bundle/')	    	" Required, all plugins must app
 
 Plugin 'gmarik/Vundle.vim'							" Vundle
 Plugin 'itchyny/lightline.vim'                      " Lightline Status Bar
-Plugin 'vifm/vifm.vim'                              " Use Vifm inside Vim
 Plugin 'vimwiki/vimwiki'                            " Vim Wiki
 Plugin 'scrooloose/nerdtree'						" Add NerdTree
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'    " Add syntax highlighting to NerdTree
 Plugin 'ryanoasis/vim-devicons'                     " Add some pretty icons
-Plugin 'vim-python/python-syntax'                   " Python syntax highlighting
 Plugin 'ap/vim-css-color'                           " Color previews for CSS
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
 Plugin 'junegunn/goyo.vim'                          " Distraction-free writing
@@ -122,8 +120,6 @@ set nobackup
 set noswapfile
 
 let g:minimap_highlight='Visual'
-
-let g:python_highlight_all = 1
 
 set guioptions-=m  " Remove menu bar
 set guioptions-=T  " Remove toolbar
