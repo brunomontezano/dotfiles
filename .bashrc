@@ -88,10 +88,6 @@ alias cb='sudo vim /sys/class/backlight/intel_backlight/brightness'
 alias ..='cd ..' 
 alias ...='cd ../..'
 
-# Broot
-alias br='br -dhp'
-alias bs='br --sizes'
-
 # Vim
 alias vim=nvim
 
