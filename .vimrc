@@ -46,7 +46,7 @@ let mapleader =","
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set lightline color scheme
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'jellybeans',
       \ }
 
 " Always show statusline
