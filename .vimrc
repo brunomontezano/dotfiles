@@ -33,13 +33,13 @@ call vundle#end()		" Required, all plugins must appear before this line.
 filetype plugin indent on    " Required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Remap Keys
+" => Remap Keys and Background
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Change leader key to ","
 let mapleader =","
 
-"Remap ESC to ii
-"imap ii <Esc>
+"Set bg
+set bg=light
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Powerline
@@ -161,3 +161,8 @@ map <Leader>p :!opout <c-r>%<CR><CR>
 " => Remove red highlighting from errors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType tex :hi Error NONE
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Goyo plugin toggle
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
