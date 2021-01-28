@@ -16,7 +16,6 @@ export TERM="st-256color" # Set st as $TERM
 export BROWSER="firefox" # Set Firefox as $BROWSER
 export MANPAGER="less" # Set less as $MANPAGER
 export HISTCONTROL=ignoredups:erasedups  # No duplicate entries
-export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # Change location of gtk-2.0 config file
 export LESSHISTFILE="-" # Stop less from creating history file
 export R_ENVIRON_USER="$XDG_CONFIG_HOME"/r/.Renviron # Change location of R environment file
