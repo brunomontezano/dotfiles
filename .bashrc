@@ -16,11 +16,10 @@ export TERM="st-256color" # Set st as $TERM
 export BROWSER="firefox" # Set Firefox as $BROWSER
 export MANPAGER="less" # Set less as $MANPAGER
 export HISTCONTROL=ignoredups:erasedups  # No duplicate entries
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # Change location of gtk-2.0 config file
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/pass # Change pass data file
-export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc # Change location of notmuch config file
 export LESSHISTFILE="-" # Stop less from creating history file
-export R_ENVIRON_USER="$HOME/.config/r/.Renviron" # Change location of R environment file
+export R_ENVIRON_USER="$XDG_CONFIG_HOME"/r/.Renviron # Change location of R environment file
 export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
 ### SET VI MODE IN BASH ###
