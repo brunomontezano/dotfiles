@@ -28,4 +28,4 @@ Note that you should read everything inside those config files before putting on
 
 ## Support
 
-Feel free to leave an issue on the ![Issue tab](https://github.com/brunomontezano/dotfiles/issues) and I'll try to respond as soon as possible.
+Feel free to leave an issue on the [Issue tab](https://github.com/brunomontezano/dotfiles/issues) and I'll try to respond as soon as possible.
