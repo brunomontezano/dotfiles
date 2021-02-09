@@ -20,6 +20,8 @@ settings:
           switching
   colors.webpage.darkmode.enabled:
     global: true
+  content.desktop_capture:
+    global: true
   content.notifications:
     https://diolinux.com.br: false
     https://meet.google.com: false
