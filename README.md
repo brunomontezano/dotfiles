@@ -1,7 +1,6 @@
 # Dotfiles
 
-
-![Screenshot2020-06-0723:49:03](https://user-images.githubusercontent.com/65104127/83988413-a9c5e880-a932-11ea-8aa0-16465fd28b61.png)
+![Screenshot2021-02-0823:56:36](https://user-images.githubusercontent.com/65104127/107309405-23394c00-6a69-11eb-8f28-b46dbf3884f3.png)
 
 Dotfiles are configuration files that are used to customize your Linux installation. It's called this way because there's is a period in the start of the filename (meaning it is a hidden file or directory), that looks like a dot. This repo contains some of my config files. This way I can use it as my backup if I format my machines or install it on new computers. Also, it can be helpful for some if you want to copy or take some ideas for your own customizations.
 
@@ -25,4 +24,8 @@ In this example I'm going to demonstrate how you would use my .bashrc file as yo
   
 If you do this, probably the next time you open your bash session, you're going to notice some changes, because of the new .bashrc file.
 
-Note that you should read everything inside those config files before putting on your system. Sometimes there are something pointing to another file or script and you should aknowledge that. But I'm sure you're pretty smart! Have a good day!
+Note that you should read everything inside those config files before putting on your system. Sometimes there are something pointing to another file, script or program and you should aknowledge that. But I'm sure you're pretty smart and gonna work it out easily! Have a nice day!
+
+## Support
+
+Feel free to leave an issue on the ![Issue tab](https://github.com/brunomontezano/dotfiles/issues) and I'll try to respond as soon as possible.
