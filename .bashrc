@@ -9,17 +9,20 @@
 ### LOAD XDG DIRECTORIES
 source "$HOME"/.config/user-dirs.dirs
 
-### EXPORTS ###
+### SHELL VARIABLES ###
 PATH="$HOME/.local/bin${PATH:+:${PATH}}" # Add .local/bin to $PATH
+HISTFILE="$XDG_DATA_HOME"/bash/history # Change bash history location
+HISTCONTROL=ignoredups:erasedups  # No duplicate entries
+PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+
+### EXPORT ###
 export EDITOR="nvim" # Set Vim as $EDITOR
 export TERM="st-256color" # Set st as $TERM
-export BROWSER="firefox" # Set Firefox as $BROWSER
+export BROWSER="brave" # Set Firefox as $BROWSER
 export MANPAGER="less" # Set less as $MANPAGER
-export HISTCONTROL=ignoredups:erasedups  # No duplicate entries
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # Change location of gtk-2.0 config file
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # Change gtk-2.0 config file location
 export LESSHISTFILE="-" # Stop less from creating history file
-export R_ENVIRON_USER="$XDG_CONFIG_HOME"/r/.Renviron # Change location of R environment file
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
+export R_ENVIRON_USER="$XDG_CONFIG_HOME"/r/.Renviron # Change R environment file location
 
 ### SET VI MODE IN BASH ###
 set -o vi
@@ -88,11 +91,6 @@ alias ...='cd ../..'
 
 # Vim
 alias vim=nvim
-
-# Adding flags
-alias df='df -h'
-alias newsboat='newsboat -u /home/pepper/.config/newsboat/urls -C /home/pepper/.config/newsboat/config -c /home/pepper/.cache/newsboat/newsboat.db'
-alias elinks='elinks -config-dir /home/pepper/.config/elinks'
 
 # Confirm before overwriting
 alias cp="cp -i"
