@@ -27,6 +27,7 @@ Plugin 'ryanoasis/vim-devicons'                     " Add some pretty icons
 Plugin 'ap/vim-css-color'                           " Color previews for CSS
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
 Plugin 'junegunn/goyo.vim'                          " Distraction-free writing
+Plugin 'jalvesaq/Nvim-R'                            " R code in Vim
 
 call vundle#end()		" Required, all plugins must appear before this line.
 
@@ -151,6 +152,7 @@ map <Leader>c :w! \| !compiler <c-r>%<CR>
 " => Compile the current article
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <Leader>a :w! \| !articlecompiler <c-r>%<CR>
+map <Leader>m :w! \| !manuscriptcompiler <c-r>%<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Open the output file from the opened file
@@ -166,3 +168,24 @@ autocmd FileType tex :hi Error NONE
 " => Goyo plugin toggle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Nvim-R
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Press -- to have Nvim-R insert the assignment operator: <-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let R_assign_map = "--"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set a minimum source editor width
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let R_min_editor_width = 80
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Don't expand a dataframe to show columns by default
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let R_objbr_opendf = 0
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Press the space bar to send lines and selection to R console
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+vmap <Space> <Plug>RDSendSelection
+nmap <Space> <Plug>RDSendLine
