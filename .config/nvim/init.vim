@@ -4,7 +4,7 @@
 "| |_| | |  | |_| | | | | (_) | https://github.com/brunomontezano/dotfiles
 "|_.__/|_|   \__,_|_| |_|\___/
 "
-" My custom .vimrc for vim and neovim use.
+" My custom .vimrc for Vim and Neovim use.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle For Managing Plugins
@@ -19,11 +19,9 @@ set rtp+=~/.config/vim/bundle/Vundle.vim
 call vundle#begin('~/.config/vim/bundle/')	    	" Required, all plugins must appear after this line.
 
 Plugin 'gmarik/Vundle.vim'							" Vundle
+Plugin 'folke/tokyonight.nvim'                      " Tokyo Night colorscheme
 Plugin 'itchyny/lightline.vim'                      " Lightline Status Bar
 Plugin 'vimwiki/vimwiki'                            " Vim Wiki
-Plugin 'scrooloose/nerdtree'						" Add NerdTree
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'    " Add syntax highlighting to NerdTree
-Plugin 'ryanoasis/vim-devicons'                     " Add some pretty icons
 Plugin 'ap/vim-css-color'                           " Color previews for CSS
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
 Plugin 'junegunn/goyo.vim'                          " Distraction-free writing
@@ -36,32 +34,55 @@ filetype plugin indent on    " Required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remap Keys and Background
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Change leader key to ","
+
+" Change leader key to ","
 let mapleader =","
 
-"Set bg
-set bg=light
+" Set bg
+set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Powerline
+" => Theming and statusline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set color scheme
+let g:tokyonight_style = "night"
+let g:tokyonight_italic_functions = 1
+let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+colorscheme tokyonight
+
 " Set lightline color scheme
-let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
-      \ }
+let g:lightline = {'colorscheme': 'tokyonight'}
 
 " Always show statusline
 set laststatus=2
 
+" Uncomment to prevent non-normal modes showing in powerline and below powerline.
+set noshowmode
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Preferences 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set real colors
+set termguicolors
+
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 
+" Enable syntax highlighting
 syntax enable   
+
+" Set relative line numbering
 set number relativenumber
 let g:rehash256 = 1
 
-" Uncomment to prevent non-normal modes showing in powerline and below powerline.
-set noshowmode
+" Mouse scrolling
+set mouse=nicr
+
+" Use system clipboard
+set clipboard=unnamedplus
+
+" Removes pipes | that act as seperators on splits
+set fillchars+=vert:\ 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -77,37 +98,10 @@ set shiftwidth=4
 set tabstop=4
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NERDTree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Uncomment to autostart the NERDTree
-" autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '►'
-let g:NERDTreeDirArrowCollapsible = '▼'
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI = 1
-let g:NERDTreeWinSize=38
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vifm (Current leader key = ,) (Default leader key = \)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader>vv :Vifm<CR>
-map <Leader>vs :VsplitVifm<CR>
-map <Leader>sp :SplitVifm<CR>
-map <Leader>dv :DiffVifm<CR>
-map <Leader>tv :TabVifm<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VimWiki
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimwiki_list = [{'path': '~/vimwiki/',
+let g:vimwiki_list = [{'path': '~/dox/repos/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Mouse Scrolling
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set mouse=nicr
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Splits and Tabbed Files
@@ -127,65 +121,47 @@ set guioptions-=T  " Remove toolbar
 set guioptions-=r  " Remove right-hand scroll bar
 set guioptions-=L  " Remove left-hand scroll bar
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Compiling files and TeX macros
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Removes pipes | that act as seperators on splits
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set fillchars+=vert:\ 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Use system clipboard
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set clipboard=unnamedplus
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Execute texclear script when leaving .tex file
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Clean TeX files when closing
 autocmd VimLeave *.tex !texclear %
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Compile the current file
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader>c :w! \| !compiler <c-r>%<CR>
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Compile the current article
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader>a :w! \| !articlecompiler <c-r>%<CR>
-map <Leader>m :w! \| !manuscriptcompiler <c-r>%<CR>
+" Remove red highlighting from errors
+autocmd FileType tex :hi Error NONE
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Open the output file from the opened file
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Compile documents from multiple formats
+map <Leader>c :w! \| !compiler <c-r>%<CR>
+
+" Show output from given file
 map <Leader>p :!opout <c-r>%<CR><CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Remove red highlighting from errors
+" => Goyo Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType tex :hi Error NONE
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Goyo plugin toggle
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
+
+" Toggle Goyo
+map <leader>f :Goyo \| set linebreak<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Nvim-R
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Press -- to have Nvim-R insert the assignment operator: <-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let R_assign_map = "--"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set a minimum source editor width
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let R_min_editor_width = 80
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Split horizontal space evenly between R source and console
+let R_rconsole_width = winwidth(0) / 2
+autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
+
 " Don't expand a dataframe to show columns by default
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let R_objbr_opendf = 0
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Press the space bar to send lines and selection to R console
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
+
+" Shortcut for magrittr pipe
+autocmd FileType r inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
+autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 

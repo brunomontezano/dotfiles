@@ -19,6 +19,7 @@ set rtp+=~/.config/vim/bundle/Vundle.vim
 call vundle#begin('~/.config/vim/bundle/')	    	" Required, all plugins must appear after this line.
 
 Plugin 'gmarik/Vundle.vim'							" Vundle
+Plugin 'folke/tokyonight.nvim'                        " Tokyo Night colorscheme
 Plugin 'itchyny/lightline.vim'                      " Lightline Status Bar
 Plugin 'vimwiki/vimwiki'                            " Vim Wiki
 Plugin 'scrooloose/nerdtree'						" Add NerdTree
@@ -40,15 +41,22 @@ filetype plugin indent on    " Required
 let mapleader =","
 
 "Set bg
-set bg=light
+set background=dark
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Powerline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set color scheme
+let g:tokyonight_style = "night"
+let g:tokyonight_italic_functions = 1
+let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
+colorscheme tokyonight
+
+" Set real colors
+set termguicolors
+
 " Set lightline color scheme
-let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
-      \ }
+let g:lightline = {'colorscheme': 'tokyonight'}
 
 " Always show statusline
 set laststatus=2
@@ -56,7 +64,10 @@ set laststatus=2
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 
+" Enable syntax highlighting
 syntax enable   
+
+" Set relative line numbering
 set number relativenumber
 let g:rehash256 = 1
 
@@ -101,7 +112,7 @@ map <Leader>tv :TabVifm<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VimWiki
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimwiki_list = [{'path': '~/vimwiki/',
+let g:vimwiki_list = [{'path': '~/dox/repos/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -177,9 +188,10 @@ map <leader>f :Goyo \| set bg=light \| set linebreak<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let R_assign_map = "--"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set a minimum source editor width
+" Split horizontal space evenly between R source and console
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let R_min_editor_width = 80
+let R_rconsole_width = winwidth(0) / 2
+autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Don't expand a dataframe to show columns by default
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -189,3 +201,8 @@ let R_objbr_opendf = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Shortcut for magrittr pipe
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd FileType r inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
+autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
