@@ -16,13 +16,14 @@ HISTCONTROL=ignoredups:erasedups  # No duplicate entries
 PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
 ### EXPORT ###
-export EDITOR="nvim" # Set Vim as $EDITOR
+export EDITOR="nvim" # Set Neovim as $EDITOR
 export TERM="st-256color" # Set st as $TERM
-export BROWSER="brave" # Set Firefox as $BROWSER
+export BROWSER="firefox" # Set Firefox as $BROWSER
 export MANPAGER="less" # Set less as $MANPAGER
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # Change gtk-2.0 config file location
 export LESSHISTFILE="-" # Stop less from creating history file
 export R_ENVIRON_USER="$XDG_CONFIG_HOME"/r/.Renviron # Change R environment file location
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java # Change OpenJDK config file
 
 ### SET VI MODE IN BASH ###
 set -o vi
@@ -69,6 +70,19 @@ ex ()
   fi
 }
 
+### VIM WIKI ###
+vimwiki () {
+    if [[ $# == 0 ]]
+    then
+        nvim +'VimwikiIndex'
+    elif [[ $1 == 'git' ]]
+    then
+        git -C ~/dox/repos/vimwiki/ ${@:2}
+    else
+        echo 'Usage: vimwiki [git] [args ...]'
+    fi
+}
+
 ### ALIASES ###
 
 # Changing "ls" to "exa"
@@ -83,7 +97,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 # Change brightness level
-alias cb='sudo vim /sys/class/backlight/intel_backlight/brightness'
+alias cb='sudo nvim /sys/class/backlight/intel_backlight/brightness'
 
 # Navigation
 alias ..='cd ..' 
@@ -105,3 +119,5 @@ export LESS_TERMCAP_se=$'\e[0m'
 export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+source /home/pepper/.config/broot/launcher/bash/br
