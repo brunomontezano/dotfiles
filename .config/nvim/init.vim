@@ -36,10 +36,15 @@ filetype plugin indent on    " Required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Change leader key to ","
-let mapleader =","
+let maplocalleader = ","
+let mapleader =";"
 
 " Set bg
 set background=dark
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Ctrl-Space to autocompletion in Nvim-R
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Theming and statusline
@@ -165,3 +170,20 @@ nmap <Space> <Plug>RDSendLine
 " Shortcut for magrittr pipe
 autocmd FileType r inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
 autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
+
+" Rebind autocompletion
+autocmd FileType r inoremap <C-Space> <C-x><C-o>
+autocmd FileType rmd inoremap <C-Space> <C-x><C-o>
+
+" Auto-match parenthesis and curly brackets
+inoremap ( ()<Left>
+inoremap { {}<Left>
+
+" Break line in R code if limit width is reached
+autocmd FileType r setlocal formatoptions+=t
+
+" Ctrl + Space to open completion window
+inoremap <C-Space> <C-x><C-o>
+
+" Use terminal colorscheme in R output
+let rout_follow_colorscheme = 1
