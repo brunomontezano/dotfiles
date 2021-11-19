@@ -4,7 +4,7 @@
 "| |_| | |  | |_| | | | | (_) | https://github.com/brunomontezano/dotfiles
 "|_.__/|_|   \__,_|_| |_|\___/
 "
-" My custom .vimrc for Vim and Neovim use.
+" My custom .vimrc for Vim and Neovim use (tested on Neovim).
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle For Managing Plugins
@@ -18,13 +18,25 @@ set rtp+=~/.config/vim/bundle/Vundle.vim
 
 call vundle#begin('~/.config/vim/bundle/')	    	" Required, all plugins must appear after this line.
 
+" => Basics
 Plugin 'gmarik/Vundle.vim'							" Vundle
-Plugin 'folke/tokyonight.nvim'                      " Tokyo Night colorscheme
 Plugin 'itchyny/lightline.vim'                      " Lightline Status Bar
-Plugin 'vimwiki/vimwiki'                            " Vim Wiki
+" => File Management
+Plugin 'scrooloose/nerdtree'                         " Nerdtree
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
+Plugin 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
+" => Theming and Color
+Plugin 'morhetz/gruvbox'                            " Gruvbox Colorscheme
+Plugin 'shinchu/lightline-gruvbox.vim'              " Gruvbox for Lightline
 Plugin 'ap/vim-css-color'                           " Color previews for CSS
-Plugin 'tpope/vim-surround'                         " Change surrounding marks
+" => Productivity
+Plugin 'vimwiki/vimwiki'                            " Vim Wiki
 Plugin 'junegunn/goyo.vim'                          " Distraction-free writing
+" => Tools
+Plugin 'tpope/vim-surround'                         " Change surrounding marks
+Plugin 'jiangmiao/auto-pairs'                       " Create objects in pairs
+Plugin 'ervandew/supertab'                          " Use TAB for completion
+" => Programming Language Specific"
 Plugin 'jalvesaq/Nvim-R'                            " R code in Vim
 
 call vundle#end()		" Required, all plugins must appear before this line.
@@ -32,37 +44,42 @@ call vundle#end()		" Required, all plugins must appear before this line.
 filetype plugin indent on    " Required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Remap Keys and Background
+" => Remap Leader Keys and Background
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Local Leader
+let maplocalleader = "," 
 
-" Change leader key to ","
-let maplocalleader = ","
+" Global Leader
 let mapleader =";"
 
-" Set bg
+" Set backgrund theme
 set background=dark
-"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Ctrl-Space to autocompletion in Nvim-R
+" => SuperTab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Reverse SuperTab order
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Theming and statusline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set color scheme
-let g:tokyonight_style = "night"
-let g:tokyonight_italic_functions = 1
-let g:tokyonight_sidebars = [ "qf", "vista_kind", "terminal", "packer" ]
-colorscheme tokyonight
+" Set Vim and Lightline colorscheme 
+let g:gruvbox_italic=1
+let g:gruvbox_bold=1
+colorscheme gruvbox
 
-" Set lightline color scheme
-let g:lightline = {'colorscheme': 'tokyonight'}
+let g:lightline = {}
+let g:lightline.colorscheme = 'gruvbox'
 
 " Always show statusline
 set laststatus=2
 
 " Uncomment to prevent non-normal modes showing in powerline and below powerline.
 set noshowmode
+
+" More space for messages
+set cmdheight=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Preferences 
@@ -86,9 +103,6 @@ set mouse=nicr
 " Use system clipboard
 set clipboard=unnamedplus
 
-" Removes pipes | that act as seperators on splits
-set fillchars+=vert:\ 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -105,21 +119,34 @@ set tabstop=4
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VimWiki
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Set Markdown syntax and change VimWiki path
 let g:vimwiki_list = [{'path': '~/dox/repos/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => NERDTree
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use Ctrl+N to toggle NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+let g:NERDTreeDirArrowExpandable = '►'
+let g:NERDTreeDirArrowCollapsible = '▼'
+let NERDTreeShowLineNumbers=1
+let NERDTreeShowHidden=1
+let NERDTreeMinimalUI = 1
+let g:NERDTreeWinSize=38
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Splits and Tabbed Files
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Create horizontal splits below and vertical splits on right by default
 set splitbelow splitright
 
-set path+=**					" Searches current directory recursively.
-set wildmenu					" Display all matches when tab complete.
-set incsearch
-set nobackup
-set noswapfile
-
-let g:minimap_highlight='Visual'
+set path+=**					" Searches current directory recursively
+set wildmenu					" Display all matches when tab complete
+set incsearch                   " Perform incremental search
+set nobackup                    " Discard use of backup files
+set noswapfile                  " Discard use of swap files
 
 set guioptions-=m  " Remove menu bar
 set guioptions-=T  " Remove toolbar
@@ -129,7 +156,6 @@ set guioptions-=L  " Remove left-hand scroll bar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Compiling files and TeX macros
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Clean TeX files when closing
 autocmd VimLeave *.tex !texclear %
 
@@ -145,14 +171,12 @@ map <Leader>p :!opout <c-r>%<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Goyo Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Toggle Goyo
+" Toggle Goyo function
 map <leader>f :Goyo \| set linebreak<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Nvim-R
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 " Press -- to have Nvim-R insert the assignment operator: <-
 let R_assign_map = "--"
 
@@ -168,16 +192,9 @@ vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 
 " Shortcut for magrittr pipe
-autocmd FileType r inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
-autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
-
-" Rebind autocompletion
-autocmd FileType r inoremap <C-Space> <C-x><C-o>
-autocmd FileType rmd inoremap <C-Space> <C-x><C-o>
-
-" Auto-match parenthesis and curly brackets
-inoremap ( ()<Left>
-inoremap { {}<Left>
+autocmd FileType r inoremap <buffer> > <Esc>:normal! a%>%<CR>a
+autocmd FileType rnoweb inoremap <buffer> > <Esc>:normal! a%>%<CR>a
+autocmd FileType rmd inoremap <buffer> > <Esc>:normal! a%>%<CR>a
 
 " Break line in R code if limit width is reached
 autocmd FileType r setlocal formatoptions+=t
@@ -187,3 +204,6 @@ inoremap <C-Space> <C-x><C-o>
 
 " Use terminal colorscheme in R output
 let rout_follow_colorscheme = 1
+
+" Use Enter key to confirm completion
+inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
