@@ -192,9 +192,9 @@ vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 
 " Shortcut for magrittr pipe
-autocmd FileType r inoremap <buffer> > <Esc>:normal! a%>%<CR>a
-autocmd FileType rnoweb inoremap <buffer> > <Esc>:normal! a%>%<CR>a
-autocmd FileType rmd inoremap <buffer> > <Esc>:normal! a%>%<CR>a
+autocmd FileType r inoremap <buffer> > <Esc>:normal! a %>%<CR>a 
+autocmd FileType rnoweb inoremap <buffer> > <Esc>:normal! a %>%<CR>a 
+autocmd FileType rmd inoremap <buffer> > <Esc>:normal! a %>%<CR>a 
 
 " Break line in R code if limit width is reached
 autocmd FileType r setlocal formatoptions+=t
