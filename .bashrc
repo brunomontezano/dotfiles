@@ -24,6 +24,8 @@ export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # Change gtk-2.0 config fi
 export LESSHISTFILE="-" # Stop less from creating history file
 export R_ENVIRON_USER="$XDG_CONFIG_HOME"/r/.Renviron # Change R environment file location
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java # Change OpenJDK config file
+export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc # Use python startup
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history # Change node.js history location
 
 ### SET VI MODE IN BASH ###
 set -o vi
