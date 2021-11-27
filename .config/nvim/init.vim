@@ -21,11 +21,11 @@ call vundle#begin('~/.config/vim/bundle/')	    	" Required, all plugins must app
 " => Basics
 Plugin 'gmarik/Vundle.vim'							" Vundle
 Plugin 'itchyny/lightline.vim'                      " Lightline Status Bar
-" => File Management
+" => NERDTree
 Plugin 'scrooloose/nerdtree'                         " Nerdtree
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
 Plugin 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
-" => Theming and Color
+" => Theming
 Plugin 'morhetz/gruvbox'                            " Gruvbox Colorscheme
 Plugin 'shinchu/lightline-gruvbox.vim'              " Gruvbox for Lightline
 Plugin 'ap/vim-css-color'                           " Color previews for CSS
@@ -36,8 +36,9 @@ Plugin 'junegunn/goyo.vim'                          " Distraction-free writing
 Plugin 'tpope/vim-surround'                         " Change surrounding marks
 Plugin 'jiangmiao/auto-pairs'                       " Create objects in pairs
 Plugin 'ervandew/supertab'                          " Use TAB for completion
-" => Programming Language Specific"
+" => Programming
 Plugin 'jalvesaq/Nvim-R'                            " R code in Vim
+Plugin 'jalvesaq/vimcmdline'                        " Send lines to interpreter
 
 call vundle#end()		" Required, all plugins must appear before this line.
 
@@ -55,6 +56,7 @@ let mapleader =";"
 " Set backgrund theme
 set background=dark
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => SuperTab
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -69,8 +71,19 @@ let g:gruvbox_italic=1
 let g:gruvbox_bold=1
 colorscheme gruvbox
 
-let g:lightline = {}
-let g:lightline.colorscheme = 'gruvbox'
+"let g:lightline = {}
+let g:lightline = {
+	\ 'colorscheme': 'gruvbox',
+	\ 'active': {
+	\   'left': [ [ 'mode', 'paste' ],
+	\             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+	\ },
+	\ 'component_function': {
+	\   'cocstatus': 'coc#status'
+	\ },
+	\ }
+  " Use autocmd to force lightline update.
+  autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " Always show statusline
 set laststatus=2
@@ -80,6 +93,7 @@ set noshowmode
 
 " More space for messages
 set cmdheight=2
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Preferences 
@@ -172,7 +186,7 @@ map <Leader>p :!opout <c-r>%<CR><CR>
 " => Goyo Plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Toggle Goyo function
-map <leader>f :Goyo \| set linebreak<CR>
+map <Leader>f :Goyo \| set linebreak<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Nvim-R
@@ -207,3 +221,11 @@ let rout_follow_colorscheme = 1
 
 " Use Enter key to confirm completion
 inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vimcmdline
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Interpreter follows terminal colorscheme
+let cmdline_follow_colorscheme = 1
+let cmdline_app = {}
+let cmdline_app['sh'] = 'bash'
