@@ -21,10 +21,6 @@ call vundle#begin('~/.config/vim/bundle/')	    	" Required, all plugins must app
 " => Basics
 Plugin 'gmarik/Vundle.vim'							" Vundle
 Plugin 'itchyny/lightline.vim'                      " Lightline Status Bar
-" => NERDTree
-Plugin 'scrooloose/nerdtree'                         " Nerdtree
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
-Plugin 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
 " => Theming
 Plugin 'morhetz/gruvbox'                            " Gruvbox Colorscheme
 Plugin 'shinchu/lightline-gruvbox.vim'              " Gruvbox for Lightline
@@ -37,6 +33,7 @@ Plugin 'tpope/vim-surround'                         " Change surrounding marks
 Plugin 'jiangmiao/auto-pairs'                       " Create objects in pairs
 Plugin 'ervandew/supertab'                          " Use TAB for completion
 " => Programming
+Plugin 'neoclide/coc.nvim'                          " Completion and LSP support
 Plugin 'jalvesaq/Nvim-R'                            " R code in Vim
 Plugin 'jalvesaq/vimcmdline'                        " Send lines to interpreter
 
@@ -71,7 +68,7 @@ let g:gruvbox_italic=1
 let g:gruvbox_bold=1
 colorscheme gruvbox
 
-"let g:lightline = {}
+" Set lightline theme and coc status information
 let g:lightline = {
 	\ 'colorscheme': 'gruvbox',
 	\ 'active': {
@@ -82,8 +79,9 @@ let g:lightline = {
 	\   'cocstatus': 'coc#status'
 	\ },
 	\ }
-  " Use autocmd to force lightline update.
-  autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
+" Use autocmd to force lightline coc.nvim update
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " Always show statusline
 set laststatus=2
@@ -93,7 +91,6 @@ set noshowmode
 
 " More space for messages
 set cmdheight=2
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Preferences 
@@ -136,19 +133,6 @@ set tabstop=4
 " Set Markdown syntax and change VimWiki path
 let g:vimwiki_list = [{'path': '~/dox/repos/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => NERDTree
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use Ctrl+N to toggle NERDTree
-map <C-n> :NERDTreeToggle<CR>
-
-let g:NERDTreeDirArrowExpandable = '►'
-let g:NERDTreeDirArrowCollapsible = '▼'
-let NERDTreeShowLineNumbers=1
-let NERDTreeShowHidden=1
-let NERDTreeMinimalUI = 1
-let g:NERDTreeWinSize=38
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Splits and Tabbed Files
@@ -206,9 +190,9 @@ vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 
 " Shortcut for magrittr pipe
-autocmd FileType r inoremap <buffer> > <Esc>:normal! a %>%<CR>a 
-autocmd FileType rnoweb inoremap <buffer> > <Esc>:normal! a %>%<CR>a 
-autocmd FileType rmd inoremap <buffer> > <Esc>:normal! a %>%<CR>a 
+autocmd FileType r inoremap <buffer> > <Esc>:normal! a %>%<CR>a
+autocmd FileType rnoweb inoremap <buffer> > <Esc>:normal! a %>%<CR>a
+autocmd FileType rmd inoremap <buffer> > <Esc>:normal! a %>%<CR>a
 
 " Break line in R code if limit width is reached
 autocmd FileType r setlocal formatoptions+=t
@@ -229,3 +213,18 @@ inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
 let cmdline_follow_colorscheme = 1
 let cmdline_app = {}
 let cmdline_app['sh'] = 'bash'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Auto-pairs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:AutoPairsMapCR = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Gnuplot syntax highlighting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au BufNewFile,BufRead *.plt,*.gnuplot setf gnuplot
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Netrw
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:netrw_banner = 0
