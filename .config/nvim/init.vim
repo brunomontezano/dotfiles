@@ -2,21 +2,43 @@
 "| |__  _ __ _   _ _ __   ___
 "| '_ \| '__| | | | '_ \ / _ \  Bruno Montezano
 "| |_| | |  | |_| | | | | (_) | https://github.com/brunomontezano/dotfiles
-"|_.__/|_|   \__,_|_| |_|\___/
+"|_.__/|_|   \__,_|_| |_|\___/  init.vim
 "
-" My custom .vimrc for Vim and Neovim use (tested on Neovim).
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Options
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set background=dark " Dark or light
+set laststatus=2 " Always show statusline
+set noshowmode " Prevent repeated mode below statusline
+set cmdheight=2 " Number of lines used for the command-line
+set termguicolors " Use GUI colors for the terminal
+set t_Co=256 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
+syntax enable " Use syntax highlighting
+set number relativenumber " Use relative numbers
+let g:rehash256 = 1 " 256 colors
+set mouse=nicr " Mouse scrolling
+set clipboard=unnamedplus " Use system clipboard
+set expandtab " Use spaces instead of tabs
+set smarttab " Tab in an indent inserts shiftwidth spaces
+set shiftwidth=4 " Number of spaces used for each step of indent
+set tabstop=4 " Number of spaces a Tab in the text stands for
+set splitbelow splitright " New window is ut below or right of the current one
+set path+=** " Searches current directory recursively
+set wildmenu " Display all matches when tab complete
+set incsearch " Perform incremental search
+set nobackup " Discard use of backup files
+set noswapfile " Discard use of swap files
+set guioptions-=m " Remove menu bar
+set guioptions-=T " Remove toolbar
+set guioptions-=r " Remove right-hand scroll bar
+set guioptions-=L " Remove left-hand scroll bar
+set rtp+=~/.config/vim/bundle/Vundle.vim " Add Vundle file to runtime path
+filetype plugin indent on " Detection, plugin and indent by filetype
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vundle For Managing Plugins
+" => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set nocompatible              " be iMproved, required
-filetype off                  " Required
-
-" Set the runtime path to include Vundle and initialize
-set rtp+=~/.config/vim/bundle/Vundle.vim
-
-call vundle#begin('~/.config/vim/bundle/')	    	" Required, all plugins must appear after this line.
+call vundle#begin('~/.config/vim/bundle/')
 
 " => Basics
 Plugin 'gmarik/Vundle.vim'							" Vundle
@@ -37,38 +59,26 @@ Plugin 'neoclide/coc.nvim'                          " Completion and LSP support
 Plugin 'jalvesaq/Nvim-R'                            " R code in Vim
 Plugin 'jalvesaq/vimcmdline'                        " Send lines to interpreter
 
-call vundle#end()		" Required, all plugins must appear before this line.
-
-filetype plugin indent on    " Required
+call vundle#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Remap Leader Keys and Background
+" => Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Local Leader
-let maplocalleader = "," 
-
-" Global Leader
-let mapleader =";"
-
-" Set backgrund theme
-set background=dark
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => SuperTab
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Reverse SuperTab order
-let g:SuperTabDefaultCompletionType = "<c-n>"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Theming and statusline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set Vim and Lightline colorscheme 
-let g:gruvbox_italic=1
-let g:gruvbox_bold=1
-colorscheme gruvbox
-
-" Set lightline theme and coc status information
+let maplocalleader = "," " Set local leader
+let mapleader =";" " Set global leader
+let R_assign_map = "--" " Nvim-R -> Press -- to have Nvim-R insert the assignment operator: <-
+let R_objbr_opendf = 0 " Nvim-R -> Don't expand a dataframe to show columns by default
+let R_rconsole_width = winwidth(0) / 2 " Nvim-R -> Split evenly between R source and console
+let rout_follow_colorscheme = 1 " Nvim-R -> Use terminal colorscheme in R output
+let cmdline_follow_colorscheme = 1 " vimcmdline -> Interpreter follows terminal colorscheme
+let cmdline_app = {} " vimcmdline -> Create dictionary for new interpreters
+let cmdline_app['sh'] = 'bash' " vimcmdline -> Use bash as sh interpreter
+let g:netrw_banner = 0 " Netrw -> Remove netrw banner
+let g:AutoPairsMapCR = 0 " AutoPairs -> Do not insert new indented line with cursor between pairs
+let g:gruvbox_italic=1 " Gruvbox -> Use italic
+let g:gruvbox_bold=1 " Gruvbox -> Use bold
+colorscheme gruvbox " Set color palette
+let g:SuperTabDefaultCompletionType = "<c-n>" " Ctrl+N goes next in completion
 let g:lightline = {
 	\ 'colorscheme': 'gruvbox',
 	\ 'active': {
@@ -79,152 +89,36 @@ let g:lightline = {
 	\   'cocstatus': 'coc#status'
 	\ },
 	\ }
-
-" Use autocmd to force lightline coc.nvim update
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-
-" Always show statusline
-set laststatus=2
-
-" Uncomment to prevent non-normal modes showing in powerline and below powerline.
-set noshowmode
-
-" More space for messages
-set cmdheight=2
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Preferences 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set real colors
-set termguicolors
-
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256
-
-" Enable syntax highlighting
-syntax enable   
-
-" Set relative line numbering
-set number relativenumber
-let g:rehash256 = 1
-
-" Mouse scrolling
-set mouse=nicr
-
-" Use system clipboard
-set clipboard=unnamedplus
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Text, tab and indent related
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
-set expandtab
-
-" Be smart when using tabs ;)
-set smarttab
-
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => VimWiki
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Set Markdown syntax and change VimWiki path
 let g:vimwiki_list = [{'path': '~/dox/repos/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Splits and Tabbed Files
+" => Remaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Create horizontal splits below and vertical splits on right by default
-set splitbelow splitright
-
-set path+=**					" Searches current directory recursively
-set wildmenu					" Display all matches when tab complete
-set incsearch                   " Perform incremental search
-set nobackup                    " Discard use of backup files
-set noswapfile                  " Discard use of swap files
-
-set guioptions-=m  " Remove menu bar
-set guioptions-=T  " Remove toolbar
-set guioptions-=r  " Remove right-hand scroll bar
-set guioptions-=L  " Remove left-hand scroll bar
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Compiling files and TeX macros
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Clean TeX files when closing
-autocmd VimLeave *.tex !texclear %
-
-" Remove red highlighting from errors
-autocmd FileType tex :hi Error NONE
-
 " Compile documents from multiple formats
 map <Leader>c :w! \| !compiler <c-r>%<CR>
-
 " Show output from given file
 map <Leader>p :!opout <c-r>%<CR><CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Goyo Plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Toggle Goyo function
+" goyo.vim -> Toggle Goyo function
 map <Leader>f :Goyo \| set linebreak<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Nvim-R
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Press -- to have Nvim-R insert the assignment operator: <-
-let R_assign_map = "--"
-
-" Split horizontal space evenly between R source and console
-let R_rconsole_width = winwidth(0) / 2
-autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
-
-" Don't expand a dataframe to show columns by default
-let R_objbr_opendf = 0
-
-" Press the space bar to send lines and selection to R console
+" Nvim-R -> Press the space bar to send lines and selection to R console
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
-
-" Shortcut for magrittr pipe
-autocmd FileType r inoremap <buffer> > <Esc>:normal! a %>%<CR>a
-autocmd FileType rnoweb inoremap <buffer> > <Esc>:normal! a %>%<CR>a
-autocmd FileType rmd inoremap <buffer> > <Esc>:normal! a %>%<CR>a
-
-" Break line in R code if limit width is reached
-autocmd FileType r setlocal formatoptions+=t
-
-" Ctrl + Space to open completion window
-inoremap <C-Space> <C-x><C-o>
-
-" Use terminal colorscheme in R output
-let rout_follow_colorscheme = 1
-
 " Use Enter key to confirm completion
 inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vimcmdline
+" => Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Interpreter follows terminal colorscheme
-let cmdline_follow_colorscheme = 1
-let cmdline_app = {}
-let cmdline_app['sh'] = 'bash'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Auto-pairs
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:AutoPairsMapCR = 0
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Gnuplot syntax highlighting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufNewFile,BufRead *.plt,*.gnuplot setf gnuplot
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Netrw
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:netrw_banner = 0
+" Shortcut for magrittr pipe in R and Rmd files
+autocmd FileType r,rmd inoremap <buffer> > <Esc>:normal! a %>%<CR>a
+" Update coc.nvim status in lightline
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+" Clean TeX files when closing
+autocmd VimLeave *.tex !texclear %
+" Remove red highlighting from errors in TeX files
+autocmd FileType tex :hi Error NONE
+" Nvim-R -> Source and Console even size
+autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
+" Gnuplot syntax highlighting in plt and gnuplot files
+autocmd BufNewFile,BufRead .plt,*.gnuplot setf gnuplot
