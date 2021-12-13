@@ -1,39 +1,42 @@
-# _
-#| |__  _ __ _   _ _ __   ___
-#| '_ \| '__| | | | '_ \ / _ \    Bruno Montezano
-#| |_) | |  | |_| | | | | (_) |   https://github.com/brunomontezano/dotfiles
-#|_.__/|_|   \__,_|_| |_|\___/    Feel free to copy and modify it.
-#
-# My bash config. Created and mantained by Bruno Montezano.
-
-### LOAD XDG DIRECTORIES
+### Sources ###
 source "$HOME"/.config/user-dirs.dirs
+source /home/pepper/.config/broot/launcher/bash/br
 
-### SHELL VARIABLES ###
-PATH="$HOME/.local/bin${PATH:+:${PATH}}" # Add .local/bin to $PATH
-HISTFILE="$XDG_DATA_HOME"/bash/history # Change bash history location
-HISTCONTROL=ignoredups:erasedups  # No duplicate entries
+### Exports and variables ###
+export EDITOR="nvim"
+export TERM="st-256color"
+export BROWSER="firefox"
+export MANPAGER="less"
+export PAGER="less"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+export LESSHISTFILE="-"
+export R_ENVIRON_USER="$XDG_CONFIG_HOME"/r/.Renviron
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+PATH="$HOME/.local/bin${PATH:+:${PATH}}"
+HISTFILE="$XDG_DATA_HOME"/bash/history
+HISTCONTROL=ignoredups:erasedups
 PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
-### EXPORT ###
-export EDITOR="nvim" # Set Neovim as $EDITOR
-export TERM="st-256color" # Set st as $TERM
-export BROWSER="firefox" # Set Firefox as $BROWSER
-export MANPAGER="less" # Set less as $MANPAGER
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc # Change gtk-2.0 config file location
-export LESSHISTFILE="-" # Stop less from creating history file
-export R_ENVIRON_USER="$XDG_CONFIG_HOME"/r/.Renviron # Change R environment file location
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java # Change OpenJDK config file
-export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc # Use python startup
-export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history # Change node.js history location
-
-### SET VI MODE IN BASH ###
+### Options ###
 set -o vi
+shopt -s histappend
+shopt -s expand_aliases
+shopt -s checkwinsize
 
-### IF NOT RUNNING INTERACTIVELY, DO NOT DO ANYTHING ###
+### If not running interactively, do not do anything ###
 [[ $- != *i* ]] && return
 
-### CHANGE THE WINDOW TITLE OF X TERMINALS ###
+### Change window title ###
 case ${TERM} in
 	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|alacritty|st-256color|konsole*)
 		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
@@ -43,13 +46,8 @@ case ${TERM} in
 		;;
 esac
 
-### SHOPT ###
-shopt -s histappend # Do not overwrite history
-shopt -s expand_aliases # Expand aliases
-shopt -s checkwinsize # Checks term size when bash regains control 
-
-## ARCHIVE EXTRACTION ###
-## Usage: ex <file>
+## Archive extraction function ###
+### Usage: ex <file> ###
 ex ()
 {
   if [ -f $1 ] ; then
@@ -72,54 +70,23 @@ ex ()
   fi
 }
 
-### VIM WIKI ###
-vimwiki () {
-    if [[ $# == 0 ]]
-    then
-        nvim +'VimwikiIndex'
-    elif [[ $1 == 'git' ]]
-    then
-        git -C ~/dox/repos/vimwiki/ ${@:2}
-    else
-        echo 'Usage: vimwiki [git] [args ...]'
-    fi
-}
-
-### ALIASES ###
-
-# Changing "ls" to "exa"
+### Aliases ###
 alias ls='exa --color=always --group-directories-first' # Normal listing
 alias la='exa -la --color=always --group-directories-first'  # All files and dirs (long format)
 alias ll='exa -l --color=always --group-directories-first'  # Long format
 alias lt='exa -aT --color=always --group-directories-first' # Tree listing
 
-# Colorize grep output
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-# Change brightness level
-alias cb='sudo nvim /sys/class/backlight/intel_backlight/brightness'
-
-# Navigation
 alias ..='cd ..' 
 alias ...='cd ../..'
 
-# Vim
 alias vim=nvim
 
-# Confirm before overwriting
 alias cp="cp -i"
 alias mv='mv -i'
 alias rm='rm -i'
 
-### COLORS IN LESS (31 - red; 32 - green; 33 - yellow; 0 - reset/normal; 1 - bold; 4 - underlined) ### 
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
-
-source /home/pepper/.config/broot/launcher/bash/br
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"' 
