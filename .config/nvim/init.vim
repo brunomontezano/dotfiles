@@ -25,18 +25,16 @@ set noswapfile " Discard use of swap files
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.local/share/nvim/site/plugins')
 
-" => Basics
-Plug 'itchyny/lightline.vim'                      " Lightline Status Bar
 " => Theming
-Plug 'morhetz/gruvbox'                            " Gruvbox Colorscheme
-Plug 'shinchu/lightline-gruvbox.vim'              " Gruvbox for Lightline
-Plug 'ap/vim-css-color'                           " Color previews for CSS
+Plug 'dracula/vim', { 'as': 'dracula' }           " Colorscheme
+Plug 'chrisbra/Colorizer'                         " Color previews
 " => Tools
+Plug 'itchyny/lightline.vim'                      " Lightline Status Bar
 Plug 'tpope/vim-surround'                         " Change surrounding marks
-Plug 'jiangmiao/auto-pairs'                       " Create objects in pairs
-Plug 'ervandew/supertab'                          " Use TAB for completion
+Plug 'vimwiki/vimwiki'                            " Personal Wiki in Vim
 " => Programming
-Plug 'neoclide/coc.nvim'                          " Completion and LSP support
+Plug 'neoclide/coc.nvim', {'branch': 'release'}   " Completion and LSP support
+Plug 'honza/vim-snippets'                         " Snippet files
 Plug 'jalvesaq/Nvim-R'                            " R code in Vim
 Plug 'jalvesaq/vimcmdline'                        " Send lines to interpreter
 
@@ -50,16 +48,15 @@ let mapleader =";" " Set global leader
 let R_assign_map = "--" " Nvim-R -> Press -- to have Nvim-R insert the assignment operator: <-
 let R_objbr_opendf = 0 " Nvim-R -> Don't expand a dataframe to show columns by default
 let rout_follow_colorscheme = 1 " Nvim-R -> Use terminal colorscheme in R output
+let r_indent_align_args = 0 " ft-r-indent -> Do not align arguments
+let r_indent_ess_comments = 0 " ft-r-indent -> Do not comment like ESS
+let r_indent_ess_compatible = 0 " ft-r-indent -> Do not make ESS compatible
 let cmdline_follow_colorscheme = 1 " vimcmdline -> Interpreter follows terminal colorscheme
 let cmdline_app = {} " vimcmdline -> Create dictionary for new interpreters
 let cmdline_app['sh'] = 'bash' " vimcmdline -> Use bash as sh interpreter
-let g:netrw_banner = 0 " Netrw -> Remove netrw banner
-let g:AutoPairsMapCR = 0 " AutoPairs -> Do not insert new indented line with cursor between pairs
-let g:gruvbox_italic=1 " Gruvbox -> Use italic
-let g:gruvbox_bold=1 " Gruvbox -> Use bold
-colorscheme gruvbox " Set color palette
-let g:SuperTabDefaultCompletionType = "<c-n>" " Supertab -> Ctrl+N goes next in completion
-let g:lightline = {'colorscheme': 'gruvbox'} " Lightline.vim -> Set colorscheme
+colorscheme dracula " Set color palette
+let g:lightline = {'colorscheme': 'darcula'} " Lightline.vim -> Set colorscheme
+let g:vimwiki_list = [{'path': '~/dox/repos/mywiki', 'path_html': '~/dox/repos/mywiki/html_path'}] " vimwiki -> Change paths
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remaps
@@ -71,8 +68,18 @@ map <Leader>p :!opout <c-r>%<CR><CR>
 " Nvim-R -> Press the space bar to send lines and selection to R console
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
-" Use Enter key to confirm completion
-inoremap <expr> <cr> ((pumvisible())?("\<C-y>"):("\<cr>"))
+" coc.nvim ->
+" Use <CR> to confirm completion
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" Use <Tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : <SID>check_back_space() ? "\<Tab>" : coc#refresh()
+" Use <Tab> and <S-Tab> to navigate the completion list
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocommands
@@ -86,4 +93,4 @@ autocmd VimLeave *.tex !texclear %
 " Remove red highlighting in TeX files
 autocmd FileType tex :hi Error NONE
 " Gnuplot syntax highlighting
-autocmd BufNewFile,BufRead .plt,*.gnuplot setf gnuplot
+autocmd BufNewFile,BufRead *.plt,*.gnuplot setf gnuplot
