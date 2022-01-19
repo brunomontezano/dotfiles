@@ -78,9 +78,9 @@ for i in groups:
         Key([mod], i.name, lazy.group[i.name].toscreen(),
             desc="Switch to group {}".format(i.name)),
 
-        # Modifier + shift + group = switch to & move focused window to group
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
+        # Modifier + shift + group = switch focused window to group
+         Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
+             desc="Move focused window to group {}".format(i.name)),
     ])
 
 
@@ -101,16 +101,18 @@ layouts = [
 ]
 
 # Colors
-colors = [["#282c34", "#282c34"],
-          ["#1c1f24", "#1c1f24"],
-          ["#dfdfdf", "#dfdfdf"],
-          ["#ff6c6b", "#ff6c6b"],
-          ["#98be65", "#98be65"],
-          ["#da8548", "#da8548"],
-          ["#51afef", "#51afef"],
-          ["#c678dd", "#c678dd"],
-          ["#46d9ff", "#46d9ff"],
-          ["#a9a1e1", "#a9a1e1"]]
+colors = {"background": "#282a36",
+          "current": "#44475a",
+          "selection": "#44475a",
+          "foreground": "#f8f8f2",
+          "comment": "#6272a4",
+          "cyan": "#8be9fd",
+          "green": "#50fa7b",
+          "orange": "#ffb86c",
+          "pink": "#ff79c6",
+          "purple": "#bd93f9",
+          "red": "#ff5555",
+          "yellow": "#f1fa8c"}
 
 # Define prompt
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
@@ -120,7 +122,7 @@ widget_defaults = dict(
     font='Ubuntu Bold',
     fontsize=10,
     padding=2,
-    background=colors[2]
+    background=colors["foreground"]
 )
 
 extension_defaults = widget_defaults.copy()
@@ -133,8 +135,8 @@ screens = [
               widget.Sep(
                        linewidth = 0,
                        padding = 6,
-                       foreground = colors[2],
-                       background = colors[0]
+                       foreground = colors["foreground"],
+                       background = colors["background"]
                        ),
               widget.Image(
                        filename = "~/.config/qtile/icons/python.png",
@@ -144,8 +146,8 @@ screens = [
               widget.Sep(
                        linewidth = 0,
                        padding = 6,
-                       foreground = colors[2],
-                       background = colors[0]
+                       foreground = colors["foreground"],
+                       background = colors["background"]
                        ),
               widget.GroupBox(
                        font = "Ubuntu Bold",
@@ -155,98 +157,101 @@ screens = [
                        padding_y = 5,
                        padding_x = 3,
                        borderwidth = 3,
-                       active = colors[2],
-                       inactive = colors[7],
+                       active = colors["foreground"],
+                       inactive = colors["purple"],
                        rounded = False,
-                       highlight_color = colors[1],
+                       highlight_color = colors["current"],
                        highlight_method = "line",
-                       this_current_screen_border = colors[6],
-                       this_screen_border = colors [4],
-                       other_current_screen_border = colors[6],
-                       other_screen_border = colors[4],
-                       foreground = colors[2],
-                       background = colors[0]
+                       this_current_screen_border = colors["cyan"],
+                       this_screen_border = colors["green"],
+                       other_current_screen_border = colors["cyan"],
+                       other_screen_border = colors["green"],
+                       foreground = colors["foreground"],
+                       background = colors["background"]
                        ),
              widget.TextBox(
                        text = '|',
                        font = "Ubuntu Mono",
-                       background = colors[0],
+                       background = colors["background"],
                        foreground = '474747',
                        padding = 2,
                        fontsize = 14
                        ),
               widget.CurrentLayoutIcon(
                        custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
-                       foreground = colors[2],
-                       background = colors[0],
+                       foreground = colors["foreground"],
+                       background = colors["background"],
                        padding = 0,
                        scale = 0.7
                        ),
               widget.CurrentLayout(
-                       foreground = colors[2],
-                       background = colors[0],
+                       foreground = colors["foreground"],
+                       background = colors["background"],
                        padding = 5
                        ),
              widget.TextBox(
                        text = '|',
                        font = "Ubuntu Mono",
-                       background = colors[0],
+                       background = colors["background"],
                        foreground = '474747',
                        padding = 2,
                        fontsize = 14
                        ),
               widget.WindowName(
-                       foreground = colors[6],
-                       background = colors[0],
+                       foreground = colors["cyan"],
+                       background = colors["background"],
                        padding = 0
                        ),
               widget.Prompt(
                 	prompt = 'Run: ',
                 	padding = 5,
-                	foreground = colors[2],
-                	background = colors[0],
+                	foreground = colors["foreground"],
+                	background = colors["background"],
                 	),
               widget.Sep(
                        linewidth = 0,
                        padding = 6,
-                       foreground = colors[0],
-                       background = colors[0]
+                       foreground = colors["background"],
+                       background = colors["background"]
                        ),
               widget.Memory(
-                       foreground = colors[1],
-                       background = colors[5],
+                       foreground = colors["background"],
+                       background = colors["orange"],
                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
                        fmt = 'Mem: {}',
                        padding = 5,
                        update_interval = 10
                        ),
               widget.Volume(
-                       foreground = colors[1],
-                       background = colors[7],
+                       foreground = colors["background"],
+                       background = colors["purple"],
                        fmt = 'Vol: {}',
                        padding = 5
                        ),
               widget.Battery(
-                      foreground = colors[1],
-                      background = colors[8],
+                      foreground = colors["background"],
+                      background = colors["green"],
+                      low_percentage = 0.25,
                       update_interval = 5,
                       fmt = 'Bat: {}',
                       full_char = '⚡',
                       charge_char = '🔌',
                       discharge_char = '🔋',
-                      low_foreground = '282c34',
-                      low_background = 'ff5555',
+                      low_foreground = colors["background"],
+                      low_background = colors["red"],
                       format = '{char} {percent:2.0%}',
                       padding = 5),
               widget.Clock(
-                       foreground = colors[1],
-                       background = colors[4],
+                       foreground = colors["background"],
+                       background = colors["pink"],
                        format = " %A, %B %d - %H:%M ",
                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("firefox https://calendar.google.com")}
                        ),
             ],
             20,
         ),
+            wallpaper = '/home/pepper/img/wallpapers/0048.jpg',
+            wallpaper_mode = 'fill',
     ),
 ]
 
