@@ -53,6 +53,7 @@ keys = [
 
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
 
+    Key([mod, "shift"], "x", lazy.spawn("sflock -h -b 'Locked.'")),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
@@ -278,6 +279,7 @@ floating_layout = layout.Floating(float_rules=[
     *layout.Floating.default_float_rules,
     Match(wm_class='R_x11'),
     Match(wm_class='gnuplot_qt'),
+    Match(wm_class='matplotlib'),
 ])
 
 
