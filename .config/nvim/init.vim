@@ -26,7 +26,7 @@ set noswapfile " Discard use of swap files
 call plug#begin('~/.local/share/nvim/site/plugins')
 
 " => Theming
-Plug 'dracula/vim', { 'as': 'dracula' }           " Colorscheme
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'chrisbra/Colorizer'                         " Color previews
 " => Tools
 Plug 'itchyny/lightline.vim'                      " Lightline Status Bar
@@ -54,8 +54,8 @@ let r_indent_ess_compatible = 0 " ft-r-indent -> Do not make ESS compatible
 let cmdline_follow_colorscheme = 1 " vimcmdline -> Interpreter follows terminal colorscheme
 let cmdline_app = {} " vimcmdline -> Create dictionary for new interpreters
 let cmdline_app['sh'] = 'bash' " vimcmdline -> Use bash as sh interpreter
-colorscheme dracula " Set color palette
-let g:lightline = {'colorscheme': 'darcula'} " Lightline.vim -> Set colorscheme
+colorscheme catppuccin " Set color palette
+let g:lightline = { 'colorscheme': 'catppuccin' }
 let g:vimwiki_list = [{'path': '~/dox/repos/mywiki', 'path_html': '~/dox/repos/mywiki/html_path'}] " vimwiki -> Change paths
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -70,7 +70,7 @@ vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 " coc.nvim ->
 " Use <CR> to confirm completion
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 " Use <Tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
   let col = col('.') - 1

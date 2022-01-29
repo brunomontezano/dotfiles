@@ -4,16 +4,21 @@ source /home/pepper/.config/broot/launcher/bash/br
 
 ### Exports and variables ###
 export EDITOR="nvim"
-export TERM="st-256color"
+export TERM="alacritty"
 export BROWSER="firefox"
 export MANPAGER="less"
 export PAGER="less"
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export DIFFPROG="nvim -d $1"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export LESSHISTFILE="-"
 export R_ENVIRON_USER="$XDG_CONFIG_HOME"/r/.Renviron
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
+export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -71,6 +76,8 @@ ex ()
 }
 
 ### Aliases ###
+alias startx='startx "$XDG_CONFIG_HOME/X11/xinitrc"'
+
 alias ls='exa --color=always --group-directories-first' # Normal listing
 alias la='exa -la --color=always --group-directories-first'  # All files and dirs (long format)
 alias ll='exa -l --color=always --group-directories-first'  # Long format
