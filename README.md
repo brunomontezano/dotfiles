@@ -38,6 +38,21 @@ on your system. Sometimes there are something pointing to another file, script
 or program and you should aknowledge that. But I'm sure you're pretty smart and
 gonna work it out easily! Have a nice day!
 
+## What software have I been using?
+
+- WM: Qtile
+- Terminal emulator: Alacritty
+- Web browser: Firefox
+- Music player: Cmus
+- AUR helper: yay
+- Video player: mpv
+- Image viewer: sxiv
+- Document viewer: zathura
+- Text editor: Neovim
+- File manager: ranger
+- Reference manager: Zotero
+- Programming-related: R, Python and shell scripting
+
 ## Support
 
 Feel free to leave an issue on the [Issue tab](https://github.com/brunomontezano/dotfiles/issues) and I'll try to respond as soon as possible.
