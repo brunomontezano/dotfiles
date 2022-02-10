@@ -40,18 +40,19 @@ gonna work it out easily! Have a nice day!
 
 ## What software have I been using?
 
-- WM: Qtile
-- Terminal emulator: Alacritty
-- Web browser: Firefox
-- Music player: Cmus
-- AUR helper: yay
-- Video player: mpv
-- Image viewer: sxiv
-- Document viewer: zathura
-- Text editor: Neovim
-- File manager: ranger
-- Reference manager: Zotero
-- Programming-related: R, Python and shell scripting
+- WM: [Qtile](http://www.qtile.org/)
+- Terminal emulator: [Alacritty](https://alacritty.org/)
+- Web browser: [Firefox](https://www.mozilla.org/)
+- Music player: [Cmus](https://cmus.github.io/)
+- AUR helper: [yay](https://github.com/Jguer/yay)
+- Video player: [mpv](https://mpv.io/)
+- Image viewer: [sxiv](https://github.com/muennich/sxiv)
+- Document viewer: [zathura](https://pwmt.org/projects/zathura/)
+- Text editor: [Neovim](https://neovim.io/)
+- File manager: [ranger](https://github.com/ranger/ranger)
+- Reference manager: [Zotero](https://www.zotero.org/)
+- Programming-related: [R](https://www.r-project.org/), [Python](https://www.python.org/), [Julia](https://julialang.org/) and [shell scripting](https://www.gnu.org/software/bash/)
+- Colorscheme: [Catppuccin](https://github.com/catppuccin/catppuccin)
 
 ## Support
 
