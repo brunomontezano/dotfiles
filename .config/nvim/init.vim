@@ -19,20 +19,18 @@ set wildmenu " Display all matches when tab complete
 set incsearch " Perform incremental search
 set nobackup " Discard use of backup files
 set noswapfile " Discard use of swap files
+set cursorline " Highlight current line
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.local/share/nvim/site/plugins')
 
-" => Theming
-Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}      " Catppuccin theme
 Plug 'chrisbra/Colorizer'                         " Color previews
-" => Tools
 Plug 'itchyny/lightline.vim'                      " Lightline Status Bar
 Plug 'tpope/vim-surround'                         " Change surrounding marks
 Plug 'vimwiki/vimwiki'                            " Personal Wiki in Vim
-" => Programming
 Plug 'neoclide/coc.nvim', {'branch': 'release'}   " Completion and LSP support
 Plug 'honza/vim-snippets'                         " Snippet files
 Plug 'jalvesaq/Nvim-R'                            " R code in Vim
@@ -57,6 +55,7 @@ let cmdline_app['sh'] = 'bash' " vimcmdline -> Use bash as sh interpreter
 colorscheme catppuccin " Set color palette
 let g:lightline = { 'colorscheme': 'catppuccin' }
 let g:vimwiki_list = [{'path': '~/dox/repos/mywiki', 'path_html': '~/dox/repos/mywiki/html_path'}] " vimwiki -> Change paths
+let g:vimwiki_global_ext = 0 " vimwiki -> Don't overwrite md files' filetype to vimwiki
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remaps
@@ -88,9 +87,3 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 autocmd FileType r,rmd inoremap <buffer> __ <Esc>:normal! a <-<CR>a 
 autocmd FileType r,rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
 autocmd FileType r,rmd inoremap <buffer> << <Esc>:normal! a \|><CR>a
-" LaTeX file cleaning script
-autocmd VimLeave *.tex !texclear %
-" Remove red highlighting in TeX files
-autocmd FileType tex :hi Error NONE
-" Gnuplot syntax highlighting
-autocmd BufNewFile,BufRead *.plt,*.gnuplot setf gnuplot
