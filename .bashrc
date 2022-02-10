@@ -19,6 +19,7 @@ export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
+export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
