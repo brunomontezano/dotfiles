@@ -16,6 +16,7 @@ myBrowser = "firefox"
 myFilemgr = "pcmanfm"
 myEditor = "alacritty -e nvim"
 screenshot = "scrot -e 'mv $f ~/img/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png'"
+screenshot_selection = "scrot -s -e 'mv $f ~/img/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png'"
 
 # Key shortcuts
 keys = [
@@ -68,6 +69,7 @@ keys = [
 
     # Screenshot
     Key([mod], "z", lazy.spawn(screenshot)),
+    Key([mod], "s", lazy.spawn(screenshot_selection)),
 ]
 
 # Workspaces
@@ -276,7 +278,6 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='gnuplot_qt'),
     Match(wm_class='matplotlib'),
 ])
-
 
 # If things like steam games want to auto-minimize themselves when losing
 # focus, should we respect this or not?
