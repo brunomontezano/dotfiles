@@ -14,12 +14,15 @@ export DIFFPROG="nvim -d $1"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 export LESSHISTFILE="-"
 export R_ENVIRON_USER="$XDG_CONFIG_HOME"/r/.Renviron
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter 
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
 export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv 
+export RSTUDIO_CHROMIUM_ARGUMENTS="--disable-seccomp-filter-sandbox"
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -98,3 +101,4 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"' 
+alias newsboat='newsboat -u "$XDG_CONFIG_HOME/newsboat/urls" -c "$XDG_CACHE_HOME/newsboat/cache.db" -C "$XDG_CONFIG_HOME/newsboat/config"'
