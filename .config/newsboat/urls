@@ -5,54 +5,75 @@ http://g1.globo.com/dynamo/brasil/rss2.xml "~NEWSFEED: G1"
 https://distrowatch.com/news/dw.xml "~NEWSFEED: DistroWatch" 
 https://itsfoss.com/feed/ "~NEWSFEED: It's Foss"
 https://opensource.com/feed "~NEWSFEED: Opensource.com"
+https://feeds.feedburner.com/RBloggers "~NEWSFEED: R-bloggers"
+https://python-bloggers.com/feed "~NEWSFEED: Python-bloggers"
+https://feeds.feedburner.com/kdnuggets-data-mining-analytics "~NEWSFEED: KDnuggets"
+https://machinelearningmastery.com/feed/ "~NEWSFEED: Machine Learning Mastery"
+https://towardsdatascience.com/feed "~NEWSFEED: Towards Data Science"
 -------------------------
--------LINUX-------------
+----------LINUX----------
 -------------------------
 https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "~LINUX: DistroTube"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~LINUX: Luke Smith"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "~LINUX: Linus Tech Tips"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ "~LINUX: Chris Titus Tech"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~LINUX: Brodie Robertson"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCCIHOP7e271SIumQgyl6XBQ "~LINUX: OldTechBloke"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg "~LINUX: Wolfgang's Channel"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCEf5U1dB5a2e2S-XUlnhxSA "~LINUX: Diolinux"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC629vKGFPRc1rz6VDm6OZiQ "~LINUX: Diolinux Clips"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5UAwBUum7CPN5buc-_N1Fw "~LINUX: The Linux Experiment"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCxQKHvKbmSzGMvUrVtJYnUA "~LINUX: LearnLinuxTV"
 -------------------------
--------FITNESS-----------
+---------FITNESS---------
 -------------------------
-https://www.youtube.com/feeds/videos.xml?channel_id=UC94_fvLx7abZgs9LIkM7jxw "~FITNESS: Zack Telander"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCd5WxLFvKjEbJl5xyUqyHSw "~FITNESS: Weightlifting House"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC99cI6bWAcvGGBFvnxbqqeg "~FITNESS: Clarence Kennedy"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCSyByWwlEi4BWzjCdJCQEDA "~FITNESS: Clarence0"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCRLOLGZl3-QTaJfLmAKgoAw "~FITNESS: Alan Thrall"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCoFUI8OrYvZJcqfjo_bbl8Q "~FITNESS: Sika Strength"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCpN9tj3DOoOiPfMyNMBAGdw "~FITNESS: TrainingPal"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCLMXDk9hPKbxd5_fsAwy02g "~FITNESS: Strength Central"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCgkzrMGEbZemPI4hkz0Z9Bw "~FITNESS: Juji & Tom"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCvErLpBQc912GUtm6WKfMng "~FITNESS: All Things Gym"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCQZBIFhQyeXtu8CZjgEZa_g "~FITNESS: Squat Jerk Journalist"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCaHx0T1LWrVKWF1XfWWLSuw "~FITNESS: OmarIsuf"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCyPYQTT20IgzVw92LDvtClw "~FITNESS: Squat University"
 -------------------------
--------YOUTUBERS---------
+----------MISC-----------
 -------------------------
 https://www.youtube.com/feeds/videos.xml?channel_id=UCjr2bPAyPV7t35MvcgT3W8Q "~YOUTUBER: The Hated One"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCdGpd0gNn38UKwoncZd9rmA "~YOUTUBER: Canal do Pirulla"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCY3hG_IxZFKz53o2smQqjDw "~YOUTUBER: Dead Consense"
 https://www.youtube.com/feeds/videos.xml?channel_id=UClu474HMt895mVxZdlIHXEA "~YOUTUBER: Nerdologia"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCWFsE0cjOc_iyHCYA_pVQ8w "~YOUTUBER: Rafi Bastos"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCm2CE2YfpmobBmF8ARLPzAw "~YOUTUBER: Caue Moura"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCR5L_Q8Tiljy7WKEQOrGKbg "~YOUTUBER: Ilha de Barbados"
 -------------------------
--------REDDIT------------
+-------PROGRAMMING-------
 -------------------------
-https://www.reddit.com/r/linux.rss "~REDDIT: r/linux"
-https://www.reddit.com/r/linux4noobs.rss "~REDDIT: r/linux4noobs" 
-https://www.reddit.com/r/linuxquestions.rss "~REDDIT: r/linuxquestions" 
-https://www.reddit.com/r/archlinux.rss "~REDDIT: r/archlinux" 
-https://www.reddit.com/r/vim.rss "~REDDIT: r/vim"
-https://www.reddit.com/r/explainlikeimfive.rss "~REDDIT: r/explainlikeimfive"
-https://www.reddit.com/r/weightlifting.rss "~REDDIT: r/weightlifting"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCTXuqtCYxPVEehq6fJY9GkA "~PROGRAMMING: Curso-R"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC8butISFwT-Wl7EV0hUK0BQ "~PROGRAMMING: freeCodeCamp.org"
 -------------------------
--------ARCHLINUX---------
+-----STATISTICS & DS-----
 -------------------------
-https://www.archlinux.org/feeds/packages/added/ "~ARCH: Packages Added"
-https://www.archlinux.org/feeds/packages/removed/ "~ARCH: Packages Removed"
-https://aur.archlinux.org/rss/ "~ARCH: Packages Added (AUR)"
-https://wiki.archlinux.org/api.php?hidebots=1&urlversion=1&days=7&limit=50&action=feedrecentchanges&feedformat=rss "~ARCH: Arch Wiki"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCKPyg5gsnt6h0aA8EBw3i6A "~STATISTICS & DS: RichardOnData"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCeiiqmVK07qhY-wvg3IZiZQ "~STATISTICS & DS: David Robinson"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC04UaROweLf-WuO3n9_TSoQ "~STATISTICS & DS: Luis Anunciação"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCbz2Rc3WZk_mcUcRID5FNUw "~STATISTICS & DS: Psicometria Online"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCTTBgWyJl2HrrhQOOc710kA "~STATISTICS & DS: Julia Silge"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCakigkjm3vBzEHpFzECDXQQ "~STATISTICS & DS: Andy Field"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2-hKemnrmVCH_29duyJ26A "~STATISTICS & DS: Lander Analytics"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCV8e2g4IWQqK71bbzGDEI4Q "~STATISTICS & DS: Data Professor"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCPzA7lZCeFiafe9V9bamISw "~STATISTICS & DS: Cientística & Podcast Naruhodo"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCmQTLhj0Ev41tjClKPJ20Lw "~STATISTICS & DS: Psicometristas Brasil"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCtYLUTtgS3k1Fg4y5tAhLbw "~STATISTICS & DS: StatQuest with Josh Starmer"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC8I5vCEW-JN90WREUPUMYOQ "~STATISTICS & DS: Ômega Data Science"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCNJK6_DZvcMqNSzQdEkzvzA "~STATISTICS & DS: Richard McElreath"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCj19IjFlNSmCAOwrlq-Svbg "~STATISTICS & DS: Samuel Macêdo"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCx1vXgGDXc7BH7bI1KC_o7Q "~STATISTICS & DS: Fernanda Peres"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCYO_jab_esuFRV4b17AJtAw "~STATISTICS & DS: 3Blue1Brown"
+-------------------------
+---------CHESS-----------
+-------------------------
+https://www.youtube.com/feeds/videos.xml?channel_id=UCSAo4zvM1oAJ_i4C6q6ejBA "~CHESS: Raffael Chess"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC5K-TQsItHnNLjqYf8A3CTw "~CHESS: Xadrez Brasil"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCistQmaDouEpKROBZBkQQ9A "~CHESS: Rafael Leitão"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCpiJhNVDJoKDhShQeC7tN4A "~CHESS: GM Luis Paulo Supi"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCwWm-fABiYbcL7ro8qONd6Q "~CHESS: GM Krikor"
+-------------------------
+--------ARCHLINUX--------
+-------------------------
+https://archlinux.org/feeds/news/ "~ARCHLINUX: Arch Linux News"
+https://archlinux.org/feeds/releases/ "~ARCHLINUX: Arch Linux Releases"
