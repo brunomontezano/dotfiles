@@ -43,7 +43,7 @@ call plug#end()
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let maplocalleader = "," " Set local leader
 let mapleader =";" " Set global leader
-let R_assign_map = "--" " Nvim-R -> Press -- to have Nvim-R insert the assignment operator: <-
+let R_assign_map = "__" " Nvim-R -> Press -- to have Nvim-R insert the assignment operator: <-
 let R_objbr_opendf = 0 " Nvim-R -> Don't expand a dataframe to show columns by default
 let rout_follow_colorscheme = 1 " Nvim-R -> Use terminal colorscheme in R output
 let r_indent_align_args = 0 " ft-r-indent -> Do not align arguments
@@ -52,6 +52,7 @@ let r_indent_ess_compatible = 0 " ft-r-indent -> Do not make ESS compatible
 let cmdline_follow_colorscheme = 1 " vimcmdline -> Interpreter follows terminal colorscheme
 let cmdline_app = {} " vimcmdline -> Create dictionary for new interpreters
 let cmdline_app['sh'] = 'bash' " vimcmdline -> Use bash as sh interpreter
+let cmdline_app['python'] = 'ipython' " vimcmdline -> Use bash as sh interpreter
 colorscheme catppuccin " Set color palette
 let g:lightline = { 'colorscheme': 'catppuccin' }
 let g:vimwiki_list = [{'path': '~/dox/repos/mywiki', 'path_html': '~/dox/repos/mywiki/html_path'}] " vimwiki -> Change paths
@@ -84,6 +85,5 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " => Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " R shortcuts
-autocmd FileType r,rmd inoremap <buffer> __ <Esc>:normal! a <-<CR>a 
 autocmd FileType r,rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
 autocmd FileType r,rmd inoremap <buffer> << <Esc>:normal! a \|><CR>a
