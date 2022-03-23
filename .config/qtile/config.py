@@ -7,23 +7,23 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
-from typing import List 
+from typing import List
 
 # Variables
 mod = "mod4"
-myTerm = "alacritty"
-myBrowser = "firefox"
-myFilemgr = "pcmanfm"
-myEditor = "alacritty -e nvim"
+my_terminal = "alacritty"
+my_browser = "firefox"
+my_file_manager = "alacritty -e vifm"
+my_editor = "alacritty -e nvim"
 screenshot = "scrot -e 'mv $f ~/img/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png'"
 screenshot_selection = "scrot -s -e 'mv $f ~/img/screenshots/Screenshot%Y-%m-%d%H:%M:%S.png'"
 
 # Key shortcuts
 keys = [
     # Launch stuff
-    Key([mod], "Return", lazy.spawn(myTerm), desc="Launch terminal"),
-    Key([mod], "b", lazy.spawn(myBrowser), desc="Launches My Web Browser"),
-    Key([mod], "f", lazy.spawn(myFilemgr), desc="Launches My File Manager"),
+    Key([mod], "Return", lazy.spawn(my_terminal), desc="Launch terminal"),
+    Key([mod], "b", lazy.spawn(my_browser), desc="Launches my web browser"),
+    Key([mod], "f", lazy.spawn(my_file_manager), desc="Launches my file manager"),
     Key([mod], "d", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
     # Switch between windows
@@ -135,7 +135,7 @@ prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 # Default widget settings
 widget_defaults = dict(
     font='JetBrains Mono Nerd Font Bold',
-    fontsize=10,
+    fontsize=16,
     padding=2,
     background=colors["white"]
 )
@@ -149,7 +149,7 @@ screens = [
             [
               widget.GroupBox(
                        font = "JetBrains Mono Nerd Font Bold",
-                       fontsize = 9,
+                       fontsize = 16,
                        margin_y = 3,
                        margin_x = 0,
                        padding_y = 5,
@@ -215,7 +215,7 @@ screens = [
               widget.Memory(
                        foreground = colors["black0"],
                        background = colors["peach"],
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e htop')},
+                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(my_terminal + ' -e htop')},
                        fmt = 'Mem: {}',
                        padding = 5,
                        update_interval = 10
