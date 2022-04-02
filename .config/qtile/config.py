@@ -121,7 +121,7 @@ layout_theme = {"border_width": 2,
 
 # Layouts to be used
 layouts = [
-    layout.MonadTall(**layout_theme),
+    layout.MonadTall(**layout_theme, ratio = 0.55),
     layout.Max(**layout_theme),
     layout.Stack(num_stacks=2),
     layout.RatioTile(**layout_theme),
@@ -134,7 +134,7 @@ prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 # Default widget settings
 widget_defaults = dict(
-    font='JetBrains Mono Nerd Font Bold',
+    font='JetBrains Mono Nerd Font',
     fontsize=16,
     padding=2,
     background=colors["white"]
@@ -145,7 +145,7 @@ extension_defaults = widget_defaults.copy()
 # Widgets in status bar
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
               widget.GroupBox(
                        font = "JetBrains Mono Nerd Font Bold",
@@ -173,7 +173,7 @@ screens = [
                        background = colors["black0"],
                        foreground = colors["gray0"],
                        padding = 2,
-                       fontsize = 14
+                       fontsize = 16
                        ),
               widget.CurrentLayoutIcon(
                        custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
@@ -193,12 +193,13 @@ screens = [
                        background = colors["black0"],
                        foreground = colors["gray0"],
                        padding = 2,
-                       fontsize = 14
+                       fontsize = 16
                        ),
               widget.WindowName(
                        foreground = colors["teal"],
                        background = colors["black0"],
-                       padding = 0
+                       padding = 0,
+                       fontsize = 15
                        ),
               widget.Prompt(
                 	prompt = 'Run: ',
@@ -216,14 +217,12 @@ screens = [
                        foreground = colors["black0"],
                        background = colors["peach"],
                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(my_terminal + ' -e htop')},
-                       fmt = 'Mem: {}',
                        padding = 5,
                        update_interval = 10
                        ),
               widget.Volume(
                        foreground = colors["black0"],
                        background = colors["mauve"],
-                       fmt = 'Vol: {}',
                        padding = 5
                        ),
               widget.Battery(
@@ -231,7 +230,6 @@ screens = [
                       background = colors["green"],
                       low_percentage = 0.25,
                       update_interval = 5,
-                      fmt = 'Bat: {}',
                       full_char = '⚡',
                       charge_char = '🔌',
                       discharge_char = '🔋',
@@ -243,12 +241,12 @@ screens = [
                        foreground = colors["black0"],
                        background = colors["pink"],
                        format = " %A, %B %d - %H:%M ",
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("firefox https://calendar.google.com")}
+                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(my_browser + " https://calendar.google.com")}
                        ),
             ],
             20,
         ),
-            wallpaper = '/home/pepper/img/wallpapers/0328.jpg',
+            wallpaper = '/home/pepper/img/wallpapers/0332.jpg',
             wallpaper_mode = 'fill',
     ),
 ]
