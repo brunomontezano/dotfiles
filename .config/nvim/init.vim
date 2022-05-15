@@ -7,10 +7,13 @@ set background=dark " Dark or light
 set clipboard=unnamedplus " Use system clipboard
 set path+=** " Searches current directory recursively
 set laststatus=2 " Always show statusline
+set showtabline=2
 set shiftwidth=4 " Number of spaces used for each step of indent
 set tabstop=4 " Number of spaces a Tab in the text stands for
 set expandtab " Use spaces instead of tabs
 set smarttab " Tab in an indent inserts shiftwidth spaces
+set ignorecase " Ignore case when searching
+set smartcase " Smart case sensitive or insensitive search
 set noshowmode " Prevent repeated mode below statusline
 set termguicolors " Use GUI colors for the terminal
 set number relativenumber " Use relative numbers
@@ -20,6 +23,7 @@ set incsearch " Perform incremental search
 set nobackup " Discard use of backup files
 set noswapfile " Discard use of swap files
 set cursorline " Highlight current line
+set hidden
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
@@ -35,6 +39,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}   " Completion and LSP support
 Plug 'honza/vim-snippets'                         " Snippet files
 Plug 'jalvesaq/Nvim-R'                            " R code in Vim
 Plug 'jalvesaq/vimcmdline'                        " Send lines to interpreter
+Plug 'taohexxx/lightline-buffer'                  " Bufferline
+Plug 'ryanoasis/vim-devicons'                     " Icons
+Plug 'Raimondi/delimitMate'                       " Automatic closing
 
 call plug#end()
 
@@ -46,15 +53,40 @@ let mapleader =";" " Set global leader
 let R_assign_map = "__" " Nvim-R -> Press -- to have Nvim-R insert the assignment operator: <-
 let R_objbr_opendf = 0 " Nvim-R -> Don't expand a dataframe to show columns by default
 let rout_follow_colorscheme = 1 " Nvim-R -> Use terminal colorscheme in R output
-let r_indent_align_args = 0 " ft-r-indent -> Do not align arguments
-let r_indent_ess_comments = 0 " ft-r-indent -> Do not comment like ESS
-let r_indent_ess_compatible = 0 " ft-r-indent -> Do not make ESS compatible
+let r_indent_align_args = 0 " ft-r-indent -> Alignment of arguments
+let r_indent_ess_comments = 1 " ft-r-indent -> Comments like ESS
+let r_indent_ess_compatible = 1 " ft-r-indent -> ESS compatible
 let cmdline_follow_colorscheme = 1 " vimcmdline -> Interpreter follows terminal colorscheme
 let cmdline_app = {} " vimcmdline -> Create dictionary for new interpreters
 let cmdline_app['sh'] = 'bash' " vimcmdline -> Use bash as sh interpreter
 let cmdline_app['python'] = 'ipython' " vimcmdline -> Use bash as sh interpreter
 colorscheme catppuccin " Set color palette
-let g:lightline = { 'colorscheme': 'catppuccin' }
+let g:lightline_buffer_enable_devicons = 1
+let g:lightline = {
+    \ 'colorscheme': 'catppuccin',
+    \ 'tabline': {
+    \   'left': [ [ 'bufferinfo' ],
+    \             [ 'separator' ],
+    \             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
+    \   'right': [ [ 'close' ], ],
+    \ },
+    \ 'component_expand': {
+    \   'buffercurrent': 'lightline#buffer#buffercurrent',
+    \   'bufferbefore': 'lightline#buffer#bufferbefore',
+    \   'bufferafter': 'lightline#buffer#bufferafter',
+    \ },
+    \ 'component_type': {
+    \   'buffercurrent': 'tabsel',
+    \   'bufferbefore': 'raw',
+    \   'bufferafter': 'raw',
+    \ },
+    \ 'component_function': {
+    \   'bufferinfo': 'lightline#buffer#bufferinfo',
+    \ },
+    \ 'component': {
+    \   'separator': '',
+    \ },
+    \ }
 let g:vimwiki_list = [{'path': '~/dox/repos/mywiki', 'path_html': '~/dox/repos/mywiki/html_path'}] " vimwiki -> Change paths
 let g:vimwiki_global_ext = 0 " vimwiki -> Don't overwrite md files' filetype to vimwiki
 
@@ -80,6 +112,10 @@ inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : <SID>check_back_space() 
 " Use <Tab> and <S-Tab> to navigate the completion list
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" Buffer management
+nnoremap <A-.> :bnext<CR>
+nnoremap <A-,> :bprev<CR>
+nnoremap <A-c> :bdelete<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocommands
