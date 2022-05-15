@@ -22,7 +22,10 @@ export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv 
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker 
+export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
 export RSTUDIO_CHROMIUM_ARGUMENTS="--disable-seccomp-filter-sandbox"
+export SSB_HOME="$XDG_DATA_HOME"/zoom 
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -31,7 +34,7 @@ export LESS_TERMCAP_so=$'\e[01;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;4;31m'
 
-PATH="$HOME/.local/bin${PATH:+:${PATH}}"
+PATH="$HOME/.local/bin":$PATH
 HISTFILE="$XDG_DATA_HOME"/bash/history
 HISTCONTROL=ignoredups:erasedups
 PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
@@ -55,7 +58,15 @@ case ${TERM} in
 		;;
 esac
 
-## Archive extraction function ###
+## Get word definition function ##
+### Usage: def <word> ###
+function def() {
+	sdcv -n --utf8-output --color "$@" 2>&1 | \
+	fold --width=$(tput cols) | \
+	less --quit-if-one-screen -RX
+}
+
+## Archive extraction function ##
 ### Usage: ex <file> ###
 ex ()
 {
@@ -101,4 +112,4 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"' 
-alias newsboat='newsboat -u "$XDG_CONFIG_HOME/newsboat/urls" -c "$XDG_CACHE_HOME/newsboat/cache.db" -C "$XDG_CONFIG_HOME/newsboat/config"'
+alias newsboat='newsboat -u /home/pepper/.config/newsboat/urls -C /home/pepper/.config/newsboat/config -c /home/pepper/.cache/newsboat/cache.db'
