@@ -24,6 +24,7 @@ set nobackup " Discard use of backup files
 set noswapfile " Discard use of swap files
 set cursorline " Highlight current line
 set hidden
+set colorcolumn=80 "Set indicator in column 80
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
@@ -38,6 +39,7 @@ Plug 'vimwiki/vimwiki'                            " Personal Wiki in Vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}   " Completion and LSP support
 Plug 'honza/vim-snippets'                         " Snippet files
 Plug 'jalvesaq/Nvim-R'                            " R code in Vim
+Plug 'lervag/vimtex'                              " LaTeX tool
 Plug 'jalvesaq/vimcmdline'                        " Send lines to interpreter
 Plug 'taohexxx/lightline-buffer'                  " Bufferline
 Plug 'ryanoasis/vim-devicons'                     " Icons
@@ -60,6 +62,7 @@ let cmdline_follow_colorscheme = 1 " vimcmdline -> Interpreter follows terminal 
 let cmdline_app = {} " vimcmdline -> Create dictionary for new interpreters
 let cmdline_app['sh'] = 'bash' " vimcmdline -> Use bash as sh interpreter
 let cmdline_app['python'] = 'ipython' " vimcmdline -> Use bash as sh interpreter
+let g:catppuccin_flavour = "dusk"
 colorscheme catppuccin " Set color palette
 let g:lightline_buffer_enable_devicons = 1
 let g:lightline = {
@@ -89,6 +92,7 @@ let g:lightline = {
     \ }
 let g:vimwiki_list = [{'path': '~/dox/repos/mywiki', 'path_html': '~/dox/repos/mywiki/html_path'}] " vimwiki -> Change paths
 let g:vimwiki_global_ext = 0 " vimwiki -> Don't overwrite md files' filetype to vimwiki
+let g:vimtex_view_method = 'zathura'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remaps
