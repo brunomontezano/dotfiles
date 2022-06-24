@@ -67,6 +67,12 @@ keys = [
     Key([], "XF86MonBrightnessUp", lazy.spawn("xbacklight -inc 15")),
     Key([], "XF86MonBrightnessDown", lazy.spawn("xbacklight -dec 15")),
 
+    # Cmus control
+    Key([], "XF86AudioNext", lazy.spawn("cmus-remote --next")),
+    Key([], "XF86AudioPrev", lazy.spawn("cmus-remote --prev")),
+    Key([], "XF86AudioPause", lazy.spawn("cmus-remote --pause")),
+    Key([], "XF86AudioPlay", lazy.spawn("cmus-remote --pause")),
+
     # Screenshot
     Key([mod], "z", lazy.spawn(screenshot)),
     Key([mod], "s", lazy.spawn(screenshot_selection)),
@@ -85,6 +91,17 @@ for i in groups:
          Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
              desc="Move focused window to group {}".format(i.name)),
     ])
+
+# Connected screens
+def get_monitors():
+    xr = subprocess.check_output('xrandr --query | grep " connected"', shell=True).decode().split('\n')
+    monitors = len(xr) - 1 if len(xr) > 2 else len(xr)
+    return monitors
+
+monitors = get_monitors()
+
+for i in range(monitors):
+    keys.extend([Key([mod, "mod1"], str(i+1), lazy.window.toscreen(i))])
 
 # Colors
 colors = {
@@ -114,7 +131,7 @@ colors = {
 
 # Default theme for layouts
 layout_theme = {"border_width": 2,
-                "margin": 8,
+                "margin": 20,
                 "border_focus": colors["maroon"],
                 "border_normal": colors["black1"]
                 }
@@ -128,13 +145,12 @@ layouts = [
     layout.Floating(**layout_theme)
 ]
 
-
 # Define prompt
 prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 # Default widget settings
 widget_defaults = dict(
-    font='JetBrains Mono Nerd Font',
+    font='Fira Sans',
     fontsize=16,
     padding=2,
     background=colors["white"]
@@ -148,7 +164,7 @@ screens = [
         top=bar.Bar(
             [
               widget.GroupBox(
-                       font = "JetBrains Mono Nerd Font Bold",
+                       font = "Fira Sans Bold",
                        fontsize = 16,
                        margin_y = 3,
                        margin_x = 0,
@@ -169,7 +185,7 @@ screens = [
                        ),
              widget.TextBox(
                        text = '|',
-                       font = "JetBrains Mono Nerd Font",
+                       font = "Fira Sans",
                        background = colors["black0"],
                        foreground = colors["gray0"],
                        padding = 2,
@@ -189,7 +205,7 @@ screens = [
                        ),
              widget.TextBox(
                        text = '|',
-                       font = "JetBrains Mono Nerd Font",
+                       font = "Fira Sans",
                        background = colors["black0"],
                        foreground = colors["gray0"],
                        padding = 2,
@@ -213,17 +229,10 @@ screens = [
                        foreground = colors["black0"],
                        background = colors["black0"]
                        ),
-              widget.Memory(
-                       foreground = colors["black0"],
-                       background = colors["peach"],
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(my_terminal + ' -e htop')},
-                       padding = 5,
-                       update_interval = 10
-                       ),
               widget.Volume(
                        foreground = colors["black0"],
                        background = colors["mauve"],
-                       padding = 5
+                       padding = 2
                        ),
               widget.Battery(
                       foreground = colors["black0"],
@@ -236,17 +245,18 @@ screens = [
                       low_foreground = colors["black0"],
                       low_background = colors["red"],
                       format = '{char} {percent:2.0%}',
-                      padding = 5),
+                      padding = 2),
               widget.Clock(
                        foreground = colors["black0"],
                        background = colors["pink"],
                        format = " %A, %B %d - %H:%M ",
-                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(my_browser + " https://calendar.google.com")}
+                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(my_browser + " https://calendar.google.com")},
+                       padding = 2
                        ),
             ],
             20,
         ),
-            wallpaper = '/home/pepper/img/wallpapers/0332.jpg',
+            wallpaper = '/home/pepper/img/wallpapers/0334.png',
             wallpaper_mode = 'fill',
     ),
 ]
