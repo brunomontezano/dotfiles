@@ -57,3 +57,5 @@ gonna work it out easily! Have a nice day!
 ## Support
 
 Feel free to leave an issue on the [Issue tab](https://github.com/brunomontezano/dotfiles/issues) and I'll try to respond as soon as possible.
+
+If you want to check out some other projects of mine, go to my [GitHub profile](https://github.com/brunomontezano).
