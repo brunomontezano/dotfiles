@@ -44,6 +44,8 @@ Plug 'jalvesaq/vimcmdline'                        " Send lines to interpreter
 Plug 'taohexxx/lightline-buffer'                  " Bufferline
 Plug 'ryanoasis/vim-devicons'                     " Icons
 Plug 'Raimondi/delimitMate'                       " Automatic closing
+Plug 'ctrlpvim/ctrlp.vim'                         " Fuzzy finder
+Plug 'tpope/vim-fugitive'                         " Git plugin
 
 call plug#end()
 
@@ -93,6 +95,10 @@ let g:lightline = {
 let g:vimwiki_list = [{'path': '~/dox/repos/mywiki', 'path_html': '~/dox/repos/mywiki/html_path'}] " vimwiki -> Change paths
 let g:vimwiki_global_ext = 0 " vimwiki -> Don't overwrite md files' filetype to vimwiki
 let g:vimtex_view_method = 'zathura'
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|jpg|jpeg|mp4|avi|docx|xlsx|odt|pptx|pdf|mp3|flac|gif|png|ods|eps|svg|db|odg|mkv|doc|rar|zip|sav|m3u|cue|Rproj|m|rds|iso|ini|lnk|7z|epub|agd|gt3x|aux|ico|AppImage|wav|info|apk|3gp|webp|wps|docm|db-journal|m4a|bkup|sla|htm|download|ppt|dsf|odp|dat|log|so|swp|dcf|djvu|MPG|RData|nav)$'}
+set wildignore+=*/tmp/*,*dox/misc/*,*/mus/*,*/google-takeout/*,*/dox/uni/*,*/vid/*
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remaps
@@ -121,9 +127,16 @@ nnoremap <A-.> :bnext<CR>
 nnoremap <A-,> :bprev<CR>
 nnoremap <A-c> :bdelete<CR>
 
+" Vim Fugitive
+noremap ,gc :Git commit % -m "
+noremap ,gsh :Git push<CR>
+noremap ,gs :Git<CR>
+noremap ,gd :Gvdiff<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " R shortcuts
 autocmd FileType r,rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a 
 autocmd FileType r,rmd inoremap <buffer> << <Esc>:normal! a \|><CR>a
+
