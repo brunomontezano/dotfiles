@@ -105,35 +105,31 @@ for i in range(monitors):
 
 # Colors
 colors = {
-          "rosewater": "#f5e0dc",
-          "flamingo": "#f2cdcd",
-          "mauve": "#ddb6f2",
-          "pink": "#f5c2e7",
-          "maroon": "#e8a2af",
-          "red": "#f28fad",
-          "peach": "#f8bd96",
-          "yellow": "#fae3b0",
-          "green": "#abe9b3",
-          "teal": "#b5e8e0",
-          "blue": "#96cdfb",
-          "sky": "#89dceb",
-          "lavender": "#c9cbff",
-          "black0": "#161320",
-          "black1": "#1a1826",
-          "black2": "#1e1e2e",
-          "black3": "#302d41",
-          "black4": "#575268",
-          "gray0": "#6e6c7e",
-          "gray1": "#988ba2",
-          "gray2": "#c3bac6",
-          "white": "#d9e0ee"
+          'background': '#202734',
+          'foreground': '#CBCCC6',
+          "black0": '#191E2A',
+          "red0": '#FF3333',
+          "green0": '#BAE67E',
+          "yellow0": '#FFA759',
+          "blue0": '#73D0FF',
+          "magenta0": '#FFD580',
+          "cyan0": '#95E6CB',
+          "white0": '#C7C7C7',
+          "black1": '#686868',
+          "red1": '#F27983',
+          "green1": '#A6CC70',
+          "yellow1": '#FFCC66',
+          "blue1": '#5CCFE6',
+          "magenta1": '#FFEE99',
+          "cyan1": '#95E6CB',
+          "white1": '#FFFFFF'
           }
 
 # Default theme for layouts
 layout_theme = {"border_width": 2,
-                "margin": 20,
-                "border_focus": colors["maroon"],
-                "border_normal": colors["black1"]
+                "margin": 12,
+                "border_focus": colors["yellow1"],
+                "border_normal": colors["background"]
                 }
 
 # Layouts to be used
@@ -150,10 +146,10 @@ prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
 
 # Default widget settings
 widget_defaults = dict(
-    font='Fira Sans',
-    fontsize=16,
+    font='Iosevka',
+    fontsize=18,
     padding=2,
-    background=colors["white"]
+    background=colors["foreground"]
 )
 
 extension_defaults = widget_defaults.copy()
@@ -164,99 +160,108 @@ screens = [
         top=bar.Bar(
             [
               widget.GroupBox(
-                       font = "Fira Sans Bold",
-                       fontsize = 16,
+                       font = "Iosevka Bold",
+                       fontsize = 18,
                        margin_y = 3,
                        margin_x = 0,
                        padding_y = 5,
                        padding_x = 3,
                        borderwidth = 3,
-                       active = colors["white"],
-                       inactive = colors["yellow"],
+                       active = colors["white0"],
+                       inactive = colors["yellow0"],
                        rounded = False,
-                       highlight_color = colors["black4"],
+                       highlight_color = colors["black0"],
                        highlight_method = "line",
-                       this_current_screen_border = colors["blue"],
-                       this_screen_border = colors["green"],
-                       other_current_screen_border = colors["blue"],
-                       other_screen_border = colors["green"],
-                       foreground = colors["white"],
-                       background = colors["black0"]
+                       this_current_screen_border = colors["blue0"],
+                       this_screen_border = colors["green0"],
+                       other_current_screen_border = colors["blue0"],
+                       other_screen_border = colors["green0"],
+                       foreground = colors["foreground"],
+                       background = colors["background"]
                        ),
              widget.TextBox(
                        text = '|',
-                       font = "Fira Sans",
-                       background = colors["black0"],
-                       foreground = colors["gray0"],
+                       font = "Iosevka",
+                       background = colors["background"],
+                       foreground = colors["black1"],
                        padding = 2,
-                       fontsize = 16
+                       fontsize = 18
                        ),
               widget.CurrentLayoutIcon(
                        custom_icon_paths = [os.path.expanduser("~/.config/qtile/icons")],
-                       foreground = colors["white"],
-                       background = colors["black0"],
+                       foreground = colors["foreground"],
+                       background = colors["background"],
                        padding = 0,
-                       scale = 0.7
+                       scale = 0.8
                        ),
               widget.CurrentLayout(
-                       foreground = colors["white"],
-                       background = colors["black0"],
+                       foreground = colors["foreground"],
+                       background = colors["background"],
                        padding = 5
                        ),
              widget.TextBox(
                        text = '|',
-                       font = "Fira Sans",
-                       background = colors["black0"],
-                       foreground = colors["gray0"],
+                       font = "Iosevka",
+                       background = colors["background"],
+                       foreground = colors["black1"],
                        padding = 2,
-                       fontsize = 16
+                       fontsize = 18
                        ),
               widget.WindowName(
-                       foreground = colors["teal"],
-                       background = colors["black0"],
+                       foreground = colors["magenta0"],
+                       background = colors["background"],
                        padding = 0,
-                       fontsize = 15
+                       fontsize = 18
                        ),
               widget.Prompt(
                 	prompt = 'Run: ',
                 	padding = 5,
-                	foreground = colors["white"],
-                	background = colors["black0"],
+                	foreground = colors["foreground"],
+                	background = colors["background"],
                 	),
               widget.Sep(
                        linewidth = 0,
                        padding = 6,
-                       foreground = colors["black0"],
-                       background = colors["black0"]
+                       foreground = colors["background"],
+                       background = colors["background"]
+                       ),
+
+              widget.Memory(
+                       foreground = colors["background"],
+                       background = colors["yellow0"],
+                       mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(my_terminal + ' -e htop')},
+                       format = '{MemUsed:.0f}{mm}/{MemTotal:.0f}{mm}',
+                       update_interval = 10,
+                       padding = 2
                        ),
               widget.Volume(
                        foreground = colors["black0"],
-                       background = colors["mauve"],
+                       background = colors["cyan1"],
                        padding = 2
                        ),
               widget.Battery(
                       foreground = colors["black0"],
-                      background = colors["green"],
+                      background = colors["green1"],
                       low_percentage = 0.25,
                       update_interval = 5,
                       full_char = '⚡',
                       charge_char = '🔌',
                       discharge_char = '🔋',
                       low_foreground = colors["black0"],
-                      low_background = colors["red"],
+                      low_background = colors["red1"],
                       format = '{char} {percent:2.0%}',
                       padding = 2),
               widget.Clock(
                        foreground = colors["black0"],
-                       background = colors["pink"],
-                       format = " %A, %B %d - %H:%M ",
+                       background = colors["magenta1"],
+                       format = " %A, %Y-%m-%d, %H:%M ",
                        mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn(my_browser + " https://calendar.google.com")},
                        padding = 2
                        ),
             ],
-            20,
+            24,
         ),
-            wallpaper = '/home/pepper/img/wallpapers/0334.png',
+            wallpaper = '/home/pepper/img/wallpapers/0119.jpg',
             wallpaper_mode = 'fill',
     ),
 ]
