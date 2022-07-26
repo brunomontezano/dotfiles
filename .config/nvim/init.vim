@@ -31,7 +31,7 @@ set colorcolumn=80 "Set indicator in column 80
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.local/share/nvim/site/plugins')
 
-Plug 'catppuccin/nvim', {'as': 'catppuccin'}      " Catppuccin theme
+Plug 'Luxed/ayu-vim'                              " Ayu Mirage colors
 Plug 'chrisbra/Colorizer'                         " Color previews
 Plug 'itchyny/lightline.vim'                      " Lightline Status Bar
 Plug 'tpope/vim-surround'                         " Change surrounding marks
@@ -64,11 +64,11 @@ let cmdline_follow_colorscheme = 1 " vimcmdline -> Interpreter follows terminal 
 let cmdline_app = {} " vimcmdline -> Create dictionary for new interpreters
 let cmdline_app['sh'] = 'bash' " vimcmdline -> Use bash as sh interpreter
 let cmdline_app['python'] = 'ipython' " vimcmdline -> Use bash as sh interpreter
-let g:catppuccin_flavour = "dusk"
-colorscheme catppuccin " Set color palette
+let g:ayucolor="mirage" " For mirage version of theme
+colorscheme ayu
 let g:lightline_buffer_enable_devicons = 1
 let g:lightline = {
-    \ 'colorscheme': 'catppuccin',
+    \ 'colorscheme': 'ayu_mirage',
     \ 'tabline': {
     \   'left': [ [ 'bufferinfo' ],
     \             [ 'separator' ],
