@@ -1,24 +1,24 @@
 font:
   normal:
-    family: JetBrains Mono Nerd Font
+    family: Iosevka
     style: Regular
 
   bold:
-    family: JetBrains Mono Nerd Font
+    family: Iosevka
     style: Bold
 
   italic:
-    family: JetBrains Mono Nerd Font
+    family: Iosevka
     style: Italic
 
   bold_italic:
-    family: JetBrains Mono Nerd Font
+    family: Iosevka
     style: Bold Italic
 
-  size: 8
+  size: 11
 
 import:
-  - ~/.config/alacritty/catppuccin.yml
+  - ~/.config/alacritty/ayu-mirage.yml
 
 key_bindings:
   - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
