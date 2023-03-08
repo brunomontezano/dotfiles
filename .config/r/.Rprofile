@@ -1,18 +1,29 @@
-# The .First function is called after everything else in .Rprofile is executed
+options(
+        usethis.full_name = "Bruno Braga Montezano",
+        usethis.protocol  = "ssh",
+        usethis.description = list(
+            "Authors@R" = utils::person(
+                "Bruno", "Braga Montezano",
+                email = "brunodoyt@gmail.com",
+                role = c("aut", "cre"),
+                comment = c(ORCID = "0000-0002-4627-1776")
+                ),
+            Version = "0.1"
+            ),
+        usethis.destdir = "~/dox/repos",
+        usethis.overwrite = FALSE,
+        editor = "nvim",
+        browser = "firefox",
+        scipen = 10,
+        max.print = 10000,
+        cli.ignore_unknown_rstudio_theme = TRUE,
+        tidymodels.dark = TRUE
+        #repos = c(CRAN = "https://cran-r.c3sl.ufpr.br")
+)
 
-.First <- function() {
-    message("Working directory is: ", getwd())
-}
+grDevices::X11.options(width = 14,
+        height = 8,
+        ypos = 150,
+        xpos = 250,
+        pointsize = 12)
 
-options(digits = 12)                            # Number of digits to print. Default is 7, max is 15
-options(stringsAsFactors = FALSE)               # Disable default conversion of character strings to factors
-options(editor="nvim")                          # Set NeoVim as my editor
-options(scipen=10)                              # Forces R to never use scientific notation
-
-.Last <- function() {
-    if (interactive()) {
-        hist_file <- Sys.getenv("R_HISTFILE")
-        if (hist_file == "") hist_file <- "~/.RHistory"
-        savehistory(hist_file)
-    }
-}
