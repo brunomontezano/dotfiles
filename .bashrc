@@ -1,70 +1,22 @@
-### Sources ###
+#
+# ~/.bashrc
+#
+
 source "$HOME"/.config/user-dirs.dirs
-source /home/pepper/.config/broot/launcher/bash/br
 
-### Exports and variables ###
-export EDITOR="nvim"
-export TERM="alacritty"
-export BROWSER="firefox"
-export MANPAGER="less"
-export PAGER="less"
-export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
-export DIFFPROG="nvim -d $1"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-export LESSHISTFILE="-"
-export R_ENVIRON_USER="$XDG_CONFIG_HOME"/r/.Renviron
-export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter 
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
-export PYTHONSTARTUP="$XDG_CONFIG_HOME"/python/pythonrc
-export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
-export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
-export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
-export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
-export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv 
-export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker 
-export MACHINE_STORAGE_PATH="$XDG_DATA_HOME"/docker-machine
-export RSTUDIO_CHROMIUM_ARGUMENTS="--disable-seccomp-filter-sandbox"
-export SSB_HOME="$XDG_DATA_HOME"/zoom 
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
-
-PATH="$HOME/.local/bin":$PATH
-HISTFILE="$XDG_DATA_HOME"/bash/history
-HISTCONTROL=ignoredups:erasedups
-PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
-
-### Options ###
-set -o vi
-shopt -s histappend
-shopt -s expand_aliases
-shopt -s checkwinsize
-
-### If not running interactively, do not do anything ###
+# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-### Change window title ###
-case ${TERM} in
-	xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|alacritty|st-256color|konsole*)
-		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\007"'
-		;;
-	screen*)
-		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
-		;;
-esac
+alias ls='ls --color=auto'
+alias la='ls -la --color=auto'
+alias grep='grep --color=auto'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias ..='cd ..' 
+alias ...='cd ../..'
 
-## Get word definition function ##
-### Usage: def <word> ###
-function def() {
-	sdcv -n --utf8-output --color "$@" 2>&1 | \
-	fold --width=$(tput cols) | \
-	less --quit-if-one-screen -RX
-}
+#PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 5)\]\w\[$(tput setaf 1)\]]\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
 ## Archive extraction function ##
 ### Usage: ex <file> ###
@@ -90,26 +42,3 @@ ex ()
   fi
 }
 
-### Aliases ###
-alias startx='startx "$XDG_CONFIG_HOME/X11/xinitrc"'
-
-alias ls='exa --color=always --group-directories-first' # Normal listing
-alias la='exa -la --color=always --group-directories-first'  # All files and dirs (long format)
-alias ll='exa -l --color=always --group-directories-first'  # Long format
-alias lt='exa -aT --color=always --group-directories-first' # Tree listing
-
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-
-alias ..='cd ..' 
-alias ...='cd ../..'
-
-alias vim=nvim
-
-alias cp="cp -i"
-alias mv='mv -i'
-alias rm='rm -i'
-
-alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"' 
-alias newsboat='newsboat -u /home/pepper/.config/newsboat/urls -C /home/pepper/.config/newsboat/config -c /home/pepper/.cache/newsboat/cache.db'
