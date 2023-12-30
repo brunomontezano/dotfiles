@@ -1,6 +1,6 @@
 # Dotfiles
 
-![Screenshot2022-01-2819:17:42](https://user-images.githubusercontent.com/65104127/151650740-42496d00-5df9-4bd7-93bf-65553c58e5ef.png)
+![Bruno's GNOME desktop](https://github.com/brunomontezano/dotfiles/assets/65104127/f526b570-aa84-486c-9edf-471bd6f60f83)
 
 ## Dotfiles are configuration files that are used to customize your Linux installation.
 
@@ -13,7 +13,7 @@ some if you want to copy or take some ideas for your own customizations.
 ## Why do I have this repository?
 
 - I can use it as my backup if I need;
-- I use it as a learning tool (on git and configuration files in general);
+- I used it as a learning tool (on git and configuration files in general);
 - Maybe I can help some people that are looking for inspiration.
 
 ## Usage
@@ -40,19 +40,19 @@ gonna work it out easily! Have a nice day!
 
 ## What software have I been using?
 
-- WM: [Qtile](http://www.qtile.org/)
-- Terminal emulator: [Alacritty](https://alacritty.org/)
+- Desktop environment: [GNOME](https://www.gnome.org/)
+- Terminal emulator: [GNOME Terminal](https://apps.gnome.org/Console/)
 - Web browser: [Firefox](https://www.mozilla.org/)
 - Music player: [Cmus](https://cmus.github.io/)
-- AUR helper: [yay](https://github.com/Jguer/yay)
-- Video player: [mpv](https://mpv.io/)
-- Image viewer: [sxiv](https://github.com/muennich/sxiv)
-- Document viewer: [zathura](https://pwmt.org/projects/zathura/)
+- AUR helper: [paru](https://github.com/Morganamilo/paru)
+- Video player: [Totem](https://apps.gnome.org/en/Totem/)
+- Image viewer: [Eye of GNOME](https://apps.gnome.org/en/Loupe/)
+- Document viewer: [Evince](https://apps.gnome.org/en/Evince/)
 - Text editor: [Neovim](https://neovim.io/)
-- File manager: [ranger](https://github.com/ranger/ranger)
+- File manager: [Nautilus](https://apps.gnome.org/en/Nautilus/)
 - Reference manager: [Zotero](https://www.zotero.org/)
 - Programming-related: [R](https://www.r-project.org/), [Python](https://www.python.org/), [Julia](https://julialang.org/) and [shell scripting](https://www.gnu.org/software/bash/)
-- Colorscheme: [Catppuccin](https://github.com/catppuccin/catppuccin)
+- Colorscheme: [Catppuccin](https://github.com/catppuccin/catppuccin) (currently running Latte flavor)
 
 ## Support
 
