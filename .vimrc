@@ -5,6 +5,9 @@
 "|_.__/|_|   \__,_|_| |_|\___/
 "
 " My custom .vimrc for Vim and Neovim use.
+" Note from December 29, 2023: this config should not be used anymore,
+" specially for Neovim because there are some plugins and configurations
+" that may not be maintained for the time being.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle For Managing Plugins
