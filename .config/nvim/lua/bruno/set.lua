@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
@@ -18,7 +20,6 @@ vim.opt.incsearch = true
 vim.opt.ignorecase = true
 
 vim.opt.termguicolors = true
-vim.opt.background = 'light'
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = 'yes'
@@ -35,4 +36,5 @@ vim.g.loaded_perl_provider = 0
 
 vim.g.vimtex_view_method = 'zathura'
 
-vim.cmd.colorscheme "catppuccin"
+vim.cmd.colorscheme 'catppuccin'
+vim.opt.background = 'dark'

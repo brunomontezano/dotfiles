@@ -24,3 +24,8 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev() end)
 vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next() end)
+
+vim.keymap.set("i", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>")
+vim.keymap.set("s", "<c-j>", "<cmd>lua require'luasnip'.jump(1)<CR>")
+vim.keymap.set("i", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>")
+vim.keymap.set("s", "<c-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>")
