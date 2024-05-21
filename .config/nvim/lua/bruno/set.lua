@@ -1,7 +1,7 @@
-vim.g.mapleader = " "
-
 vim.opt.nu = true
 vim.opt.relativenumber = true
+
+vim.opt.mouse = "a"
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -22,19 +22,15 @@ vim.opt.ignorecase = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
-vim.opt.signcolumn = 'yes'
-vim.opt.isfname:append('@-@')
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
 
-vim.opt.updatetime = 50
+vim.opt.updatetime = 250
 
-vim.opt.colorcolumn = '80'
+vim.opt.colorcolumn = "80"
 
 vim.opt.splitright = true
+vim.opt.splitbelow = true
 
-vim.g.loaded_ruby_provider = 0
-vim.g.loaded_perl_provider = 0
-
-vim.g.vimtex_view_method = 'zathura'
-
-vim.cmd.colorscheme 'catppuccin'
-vim.opt.background = 'dark'
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }

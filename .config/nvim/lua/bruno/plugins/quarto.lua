@@ -1,4 +1,4 @@
 return {
-    'quarto-dev/quarto-nvim',
-    config = true
+	"quarto-dev/quarto-nvim",
+	config = true,
 }

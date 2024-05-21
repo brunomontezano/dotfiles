@@ -18,11 +18,13 @@ require('lazy').setup({
 
         require 'bruno.plugins.lsp',
 
-        require 'bruno.plugins.mason',
+        require 'bruno.plugins.conform',
 
         require 'bruno.plugins.cmp',
 
         require 'bruno.plugins.telescope',
+
+        require 'bruno.plugins.lint',
     },
     {
         ui = {
