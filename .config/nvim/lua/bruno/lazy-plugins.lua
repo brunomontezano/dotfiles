@@ -12,6 +12,8 @@ require('lazy').setup({
 
         require 'bruno.plugins.catppuccin',
 
+        require 'bruno.plugins.todo-comments',
+
         require 'bruno.plugins.iron',
 
         require 'bruno.plugins.treesitter',
@@ -24,7 +26,12 @@ require('lazy').setup({
 
         require 'bruno.plugins.telescope',
 
+        require 'bruno.plugins.debug',
+
+        require 'bruno.plugins.indent-line',
+
         require 'bruno.plugins.lint',
+
     },
     {
         ui = {

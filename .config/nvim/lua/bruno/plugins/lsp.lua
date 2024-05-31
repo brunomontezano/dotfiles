@@ -78,9 +78,37 @@ return {
 
 			local servers = {
 				r_language_server = {},
-				pyright = {},
+				pyright = {
+					handlers = {
+						["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+							virtual_text = false,
+							signs = false,
+							underline = true,
+							update_in_insert = false,
+						}),
+					},
+					on_attach = function(client, _)
+						client.server_capabilities.codeActionProvider = false
+					end,
+					settings = {
+						pyright = {
+							disableOrganizeImports = true,
+							disableTaggedHints = false,
+						},
+						python = {
+							analysis = {
+								autoSearchPaths = true,
+								typeCheckingMode = "basic",
+								useLibraryCodeForTypes = true,
+							},
+						},
+					},
+				},
 				rust_analyzer = {},
 				html = {},
+				jinja_lsp = {
+					filetypes = { "htmldjango" },
+				},
 				clangd = {},
 				cssls = {},
 				texlab = {},
@@ -89,6 +117,13 @@ return {
 				lua_ls = {
 					settings = {
 						Lua = {
+							workspace = {
+								checkThirdParty = false,
+								telemetry = { enable = false },
+								library = {
+									"${3rd}/love2d/library",
+								},
+							},
 							completion = {
 								callSnippet = "Replace",
 							},

@@ -37,15 +37,16 @@ return {
 			custom_highlights = {},
 			integrations = {
 				cmp = true,
-				gitsigns = true,
-				nvimtree = true,
+				mason = true,
+				gitsigns = false,
+				nvimtree = false,
 				treesitter = true,
 				telescope = {
 					enabled = true,
 				},
 				notify = false,
 				mini = {
-					enabled = true,
+					enabled = false,
 					indentscope_color = "",
 				},
 				native_lsp = {
@@ -71,6 +72,12 @@ return {
 	end,
 	init = function()
 		vim.cmd.colorscheme("catppuccin")
-		vim.opt.background = "dark"
+
+		local hour = tonumber(os.date("%H"))
+		if hour >= 18 or hour < 6 then
+			vim.opt.background = "dark"
+		else
+			vim.opt.background = "light"
+		end
 	end,
 }

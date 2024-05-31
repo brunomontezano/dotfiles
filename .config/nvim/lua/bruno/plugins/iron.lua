@@ -13,14 +13,14 @@ return {
 					r = {
 						command = { "R" },
 					},
-					quarto = {
-						command = { "R" },
-					},
 					python = {
 						command = { "ipython" },
 					},
 					julia = {
 						command = { "julia" },
+					},
+					sql = {
+						command = { "sqlite3" },
 					},
 				},
 				repl_open_cmd = require("iron.view").split.vertical.botright(0.5),
