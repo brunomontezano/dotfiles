@@ -3,7 +3,7 @@ return {
 	name = "catppuccin",
 	config = function()
 		require("catppuccin").setup({
-			flavour = "latte", -- latte, frappe, macchiato, mocha
+			flavour = "auto", -- latte, frappe, macchiato, mocha
 			background = {
 				light = "latte",
 				dark = "mocha",
@@ -36,7 +36,15 @@ return {
 			color_overrides = {},
 			custom_highlights = {},
 			integrations = {
+				dap = true,
+				dap_ui = true,
+				indent_blankline = {
+					enabled = true,
+					scope_color = "lavender",
+					colored_indent_levels = false,
+				},
 				cmp = true,
+				which_key = true,
 				mason = true,
 				gitsigns = false,
 				nvimtree = false,

@@ -5,10 +5,8 @@ return {
 			{ "williamboman/mason.nvim", config = true },
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-
 			{ "j-hui/fidget.nvim", opts = {} },
-
-			{ "folke/neodev.nvim", opts = {} },
+			{ "folke/lazydev.nvim", opts = {} },
 		},
 		config = function()
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -111,9 +109,11 @@ return {
 				},
 				clangd = {},
 				cssls = {},
+				elixirls = {},
 				texlab = {},
 				bashls = {},
 				tsserver = {},
+				dockerls = {},
 				lua_ls = {
 					settings = {
 						Lua = {

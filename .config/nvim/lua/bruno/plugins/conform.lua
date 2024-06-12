@@ -1,15 +1,14 @@
 return {
 	{
 		"stevearc/conform.nvim",
-		lazy = false,
 		keys = {
 			{
-				"<leader>f",
+				"<leader>fm",
 				function()
 					require("conform").format({ async = true, lsp_fallback = true })
 				end,
 				mode = "",
-				desc = "[F]ormat buffer",
+				desc = "[F]or[m]at buffer",
 			},
 		},
 		opts = {

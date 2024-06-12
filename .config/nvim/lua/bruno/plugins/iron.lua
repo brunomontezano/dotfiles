@@ -1,5 +1,39 @@
 return {
 	"Vigemus/iron.nvim",
+	keys = {
+		{
+			"<leader>rs",
+			function()
+				vim.api.nvim_command("IronRepl")
+			end,
+			mode = "n",
+			desc = "[R]EPL [S]tart",
+		},
+		{
+			"<leader>rr",
+			function()
+				vim.api.nvim_command("IronRestart")
+			end,
+			mode = "n",
+			desc = "[R]EPL [R]estart",
+		},
+		{
+			"<leader>rf",
+			function()
+				vim.api.nvim_command("IronFocus")
+			end,
+			mode = "n",
+			desc = "[R]EPL [F]ocus",
+		},
+		{
+			"<leader>rh",
+			function()
+				vim.api.nvim_command("IronHide")
+			end,
+			mode = "n",
+			desc = "[R]EPL [H]ide",
+		},
+	},
 	config = function()
 		local iron = require("iron.core")
 
@@ -45,10 +79,5 @@ return {
 			},
 			ignore_blank_lines = true,
 		})
-
-		vim.keymap.set("n", "<space>rs", "<cmd>IronRepl<cr>")
-		vim.keymap.set("n", "<space>rr", "<cmd>IronRestart<cr>")
-		vim.keymap.set("n", "<space>rf", "<cmd>IronFocus<cr>")
-		vim.keymap.set("n", "<space>rh", "<cmd>IronHide<cr>")
 	end,
 }

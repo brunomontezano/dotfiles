@@ -1,53 +1,64 @@
 return {
 	{
 		"quarto-dev/quarto-nvim",
-		ft = { "quarto" },
-		dev = false,
-		opts = {
-			lspFeatures = {
-				enabled = true,
-				languages = {
-					"r",
-					"python",
-					"julia",
+		dependencies = {
+			{
+				"jmbuhr/otter.nvim",
+				opts = {
+					buffers = {
+						write_to_disk = true,
+					},
 				},
 			},
 		},
-		codeRunner = {
-			enabled = true,
-			default_method = "molten",
-			ft_runners = {
-				python = "python",
-				r = "R",
-				julia = "julia",
+		ft = "quarto",
+		config = function()
+			local quarto = require("quarto")
+
+			vim.keymap.set(
+				"n",
+				"<leader>qp",
+				quarto.quartoPreview,
+				{ silent = true, noremap = true, desc = "[Q]uarto [P]review" }
+			)
+			vim.keymap.set(
+				"n",
+				"<leader>qc",
+				quarto.quartoClosePreview,
+				{ silent = true, noremap = true, desc = "[Q]uarto [C]lose Preview" }
+			)
+
+			vim.diagnostic.config({ virtual_text = false })
+		end,
+		opts = {
+			debug = false,
+			closePreviewOnExit = true,
+			lspFeatures = {
+				enabled = true,
+				chunks = "curly",
+				languages = { "r", "python", "julia", "bash", "html" },
+				diagnostics = {
+					enabled = true,
+					triggers = { "BufWritePost" },
+				},
+				completion = {
+					enabled = true,
+				},
 			},
-			never_run = { "yaml" },
-		},
-	},
-	{
-		"benlubas/molten-nvim",
-		build = ":UpdateRemotePlugins",
-		keys = {
-			{
-				"<leader>mi",
-				":MoltenInit<cr>",
-				desc = "[m]olten [i]nit",
+			codeRunner = {
+				enabled = false,
+				default_method = nil,
+				ft_runners = {},
+				never_run = { "yaml" },
 			},
-			{
-				"<leader>ml",
-				":MoltenEvaluateLine<cr>",
-				desc = "[m]olten eval [l]ine",
-			},
-			{
-				"<leader>mv",
-				":<C-u>MoltenEvaluateVisual<cr>",
-				mode = "v",
-				desc = "[m]olten eval [v]isual",
-			},
-			{
-				"<leader>mr",
-				":MoltenReevaluateCell<cr>",
-				desc = "[m]olten [r]e-eval cell",
+			keymap = {
+				hover = "K",
+				definition = "gd",
+				type_definition = "gD",
+				rename = "<leader>lR",
+				format = "<leader>lf",
+				references = "gr",
+				document_symbols = "gS",
 			},
 		},
 	},
