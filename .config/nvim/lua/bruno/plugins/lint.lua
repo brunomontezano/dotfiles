@@ -8,6 +8,7 @@ return {
 			lint.linters_by_ft["markdown"] = { "markdownlint" }
 			lint.linters_by_ft["sh"] = { "shellcheck" }
 			lint.linters_by_ft["python"] = { "flake8" }
+			lint.linters_by_ft["htmldjango"] = { "djlint" }
 
 			lint.linters_by_ft["clojure"] = nil
 			lint.linters_by_ft["dockerfile"] = nil
