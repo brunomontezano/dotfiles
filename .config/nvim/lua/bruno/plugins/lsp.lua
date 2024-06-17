@@ -114,6 +114,27 @@ return {
 				bashls = {},
 				tsserver = {},
 				dockerls = {},
+				gopls = {},
+				perlnavigator = {},
+				ltex = {
+					filetypes = {
+						"tex",
+					},
+					settings = {
+						ltex = {
+							latex = {
+								commands = {
+									["\\author{}"] = "ignore",
+									["\\newtheoremstyle{}{}{}{}{}{}{}{}{}"] = "ignore",
+									["\\usepgfplotslibrary{}"] = "ignore",
+									["\\pgfplotsset{}"] = "ignore",
+									["\\biboptions{}"] = "ignore",
+									["\\newmdtheoremenv[]{}"] = "ignore",
+								},
+							},
+						},
+					},
+				},
 				lua_ls = {
 					settings = {
 						Lua = {
