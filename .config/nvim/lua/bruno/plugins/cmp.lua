@@ -27,16 +27,55 @@ return {
 		config = function()
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
+			local kind_icons = {
+				Text = "",
+				Method = "󰆧",
+				Function = "󰊕",
+				Constructor = "",
+				Field = "󰇽",
+				Variable = "󰂡",
+				Class = "󰠱",
+				Interface = "",
+				Module = "",
+				Property = "󰜢",
+				Unit = "",
+				Value = "󰎠",
+				Enum = "",
+				Keyword = "󰌋",
+				Snippet = "",
+				Color = "󰏘",
+				File = "󰈙",
+				Reference = "",
+				Folder = "󰉋",
+				EnumMember = "",
+				Constant = "󰏿",
+				Struct = "",
+				Event = "",
+				Operator = "󰆕",
+				TypeParameter = "󰅲",
+			}
+
 			luasnip.config.setup({})
 
 			cmp.setup({
+				formatting = {
+					format = function(entry, vim_item)
+						vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+						vim_item.menu = ({
+							otter = "[Otter]",
+							nvim_lsp = "[LSP]",
+							luasnip = "[LuaSnip]",
+							path = "[Path]",
+						})[entry.source.name]
+						return vim_item
+					end,
+				},
 				snippet = {
 					expand = function(args)
 						luasnip.lsp_expand(args.body)
 					end,
 				},
 				completion = { completeopt = "menu,menuone,noinsert" },
-
 				mapping = cmp.mapping.preset.insert({
 					["<C-n>"] = cmp.mapping.select_next_item(),
 					["<C-p>"] = cmp.mapping.select_prev_item(),
