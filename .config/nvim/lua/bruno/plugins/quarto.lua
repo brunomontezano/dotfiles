@@ -14,6 +14,7 @@ return {
 		ft = "quarto",
 		config = function()
 			local quarto = require("quarto")
+			local config = require("quarto.config").config
 
 			vim.keymap.set(
 				"n",
@@ -27,6 +28,10 @@ return {
 				quarto.quartoClosePreview,
 				{ silent = true, noremap = true, desc = "[Q]uarto [C]lose Preview" }
 			)
+
+			if config.lspFeatures.enabled then
+				quarto.activate()
+			end
 
 			vim.diagnostic.config({ virtual_text = false })
 		end,
@@ -46,19 +51,10 @@ return {
 				},
 			},
 			codeRunner = {
-				enabled = false,
-				default_method = nil,
+				enabled = true,
+				default_method = "molten",
 				ft_runners = {},
 				never_run = { "yaml" },
-			},
-			keymap = {
-				hover = "K",
-				definition = "gd",
-				type_definition = "gD",
-				rename = "<leader>lR",
-				format = "<leader>lf",
-				references = "gr",
-				document_symbols = "gS",
 			},
 		},
 	},
