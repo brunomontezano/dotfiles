@@ -59,15 +59,14 @@ return {
 
 			cmp.setup({
 				formatting = {
-					format = function(entry, vim_item)
-						vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-						vim_item.menu = ({
-							otter = "[Otter]",
+					format = function(entry, item)
+						item.kind = string.format("%s %s", kind_icons[item.kind], item.kind)
+						item.menu = ({
 							nvim_lsp = "[LSP]",
 							luasnip = "[LuaSnip]",
 							path = "[Path]",
 						})[entry.source.name]
-						return vim_item
+						return item
 					end,
 				},
 				snippet = {
@@ -99,7 +98,6 @@ return {
 					end, { "i", "s" }),
 				}),
 				sources = {
-					{ name = "otter" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
