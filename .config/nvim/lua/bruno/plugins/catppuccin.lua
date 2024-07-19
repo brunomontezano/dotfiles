@@ -35,6 +35,7 @@ return {
 			},
 			color_overrides = {},
 			custom_highlights = {},
+			default_integrations = false,
 			integrations = {
 				dap = true,
 				dap_ui = true,
