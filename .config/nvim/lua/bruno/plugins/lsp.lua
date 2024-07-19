@@ -76,7 +76,7 @@ return {
 
 			local servers = {
 				r_language_server = {},
-				pyright = {
+				basedpyright = {
 					handlers = {
 						["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 							virtual_text = false,
@@ -89,11 +89,9 @@ return {
 						client.server_capabilities.codeActionProvider = false
 					end,
 					settings = {
-						pyright = {
+						basedpyright = {
 							disableOrganizeImports = true,
 							disableTaggedHints = false,
-						},
-						python = {
 							analysis = {
 								autoSearchPaths = true,
 								typeCheckingMode = "basic",
@@ -104,6 +102,9 @@ return {
 				},
 				rust_analyzer = {},
 				html = {},
+				htmx = {},
+				tailwindcss = {},
+				templ = {},
 				jinja_lsp = {
 					filetypes = { "htmldjango" },
 				},
@@ -112,7 +113,7 @@ return {
 				elixirls = {},
 				texlab = {},
 				bashls = {},
-				tsserver = {},
+				vtsls = {},
 				dockerls = {},
 				gopls = {},
 				perlnavigator = {},
