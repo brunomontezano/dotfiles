@@ -1,0 +1,7 @@
+options(radian.color_scheme = "github-dark")
+
+options(radian.global_history_file = "~/.cache/radian_history")
+options(radian.local_history_file = ".radian_history")
+
+options(radian.auto_match = FALSE)
+options(radian.auto_indentation = FALSE)
